@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using QFSW.QC;
 using UnityEngine;
 
 public class Hydra : MonoBehaviour
@@ -19,9 +20,15 @@ public class Hydra : MonoBehaviour
         _heads.Clear();
     }
 
-    public void InstantiateHydraHead()
+    public void SpawnHead()
     {
         var newHead = Instantiate(_headPrefab, _neckAnchor);
+        _heads.Add(newHead);
+    }
 
+    [Command("SpawnHead")]
+    public static void COMMAND_SpawnHead()
+    {
+        FindFirstObjectByType<Hydra>().SpawnHead();
     }
 }
