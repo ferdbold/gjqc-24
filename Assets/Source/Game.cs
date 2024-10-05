@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
     public static Action OnGameStarted;
 
     [SerializeField] private GameData _gameData;
+    [SerializeField] private List<PlayerData> _playerDataAssets = new();
     [SerializeField] private PlayerInputManager _inputManager;
 
     private readonly List<PlayerInput> _playerInputs = new();
@@ -38,10 +39,13 @@ public class Game : MonoBehaviour
             return;
         }
 
-        player.PlayerData = ScriptableObject.CreateInstance<PlayerData>();
-        player.PlayerData.PlayerIndex = _gameData.Players.Count;
+        var playerIndex = _gameData.Players.Count;
+        player.PlayerData = _playerDataAssets[playerIndex];
+        player.PlayerData.PlayerIndex = playerIndex;
+
         _gameData.Players.Add(player.PlayerData);
         _playerInputs.Add(playerInput);
+
         player.gameObject.name = $"Player {player.PlayerData.PlayerIndex}";
 
         playerInput.actions.FindAction("Start").performed += CB_GameStartRequested;
