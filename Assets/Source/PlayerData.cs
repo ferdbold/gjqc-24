@@ -11,6 +11,7 @@ public class PlayerData : ScriptableObject
 
     private void OnEnable()
     {
+        PlayerIndex = -1;
         Health = 100f;
         Score = 0;
         StunProgress = -1;
