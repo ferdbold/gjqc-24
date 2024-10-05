@@ -385,6 +385,7 @@ MonoBehaviour:
   _playerInput: {fileID: 4109435969388710920}
   _characterController: {fileID: 2685299536623211525}
   _playerVisual: {fileID: 247675118911662231}
+  _animator: {fileID: 3519588873842380032}
   _oneWayCollider: {fileID: 3480727554474718185}
   _stunInputsRequired: 8
 --- !u!114 &2685299536623211525
@@ -548,6 +549,11 @@ PrefabInstance:
 --- !u!23 &247675118911662231 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5989041760796816592, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
+  m_PrefabInstance: {fileID: 5796892437111151687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3519588873842380032 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6965561861905469767, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
   m_PrefabInstance: {fileID: 5796892437111151687}
   m_PrefabAsset: {fileID: 0}
 --- !u!61 &5698157551157622030 stripped
