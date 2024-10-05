@@ -16,3 +16,4 @@ MonoBehaviour:
   Health: 100
   Score: 0
   StunProgress: -1
+  PlayerColor: {r: 1, g: 0, b: 0, a: 1}

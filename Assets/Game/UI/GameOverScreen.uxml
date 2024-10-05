@@ -1,0 +1,5 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement style="flex-grow: 1; -unity-text-outline-width: 8px;">
+        <engine:Label text="L&apos;hydre a vaicue les héros" style="font-size: 130px; color: rgb(0, 0, 0); position: absolute; top: 432px; left: 145px; -unity-font-style: bold; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); -unity-text-outline-color: rgba(255, 255, 255, 0); -unity-text-outline-width: 4px;" />
+    </engine:VisualElement>
+</engine:UXML>

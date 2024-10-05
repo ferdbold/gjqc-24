@@ -13,6 +13,7 @@ public class PlayerData : ScriptableObject
     [Range(0, 100)] public float Health;
     public int Score;
     public int StunProgress = -1;
+    public Color PlayerColor;
 
     private void OnEnable()
     {
@@ -20,6 +21,7 @@ public class PlayerData : ScriptableObject
         Health = 100f;
         Score = 0;
         StunProgress = -1;
+
     }
 
     [CreateProperty] public bool Stunned => StunProgress >= 0;
