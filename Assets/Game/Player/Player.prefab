@@ -369,6 +369,7 @@ MonoBehaviour:
   _playerInput: {fileID: 4109435969388710920}
   _characterController: {fileID: 2685299536623211525}
   _playerVisual: {fileID: 247675118911662231}
+  _oneWayCollider: {fileID: 3480727554474718185}
 --- !u!114 &2685299536623211525
 MonoBehaviour:
   m_ObjectHideFlags: 0

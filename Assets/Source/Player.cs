@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private CharacterController2D _characterController;
     [SerializeField] private MeshRenderer _playerVisual;
+    [SerializeField] private Collider2D _oneWayCollider;
 
     private PlayerData _playerData;
     public PlayerData PlayerData => _playerData;
@@ -68,6 +69,8 @@ public class Player : MonoBehaviour
     public void INPUT_Crouch(InputAction.CallbackContext ctx)
     {
         _shouldCrouch = true;
+        var value = ctx.ReadValue<float>() > 0f;
+        _oneWayCollider.enabled = !value;
     }
 
     private void CB_OnGameStarted()
