@@ -8,14 +8,24 @@ public class Player : MonoBehaviour
     [Header("Components")]
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private CharacterController2D _characterController;
-    [SerializeField] private MeshRenderer _playerVisual;
+    [SerializeField] private Renderer _playerVisual;
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _oneWayCollider;
+    [SerializeField] private Collider2D _hitbox;
 
     [Header("Values")]
     [SerializeField] private int _stunInputsRequired = 8;
 
-    private static readonly int APARAM_VELOCITY = Animator.StringToHash("Velocity");
+    [Header("AudioSources")]
+    public AudioSource _sfxJump;
+    public AudioSource _sfxHurt;
+    public AudioSource _sfxAttack;
+
+    private static readonly int APARAM_VELOCITY_X = Animator.StringToHash("VelocityX");
+    private static readonly int APARAM_VELOCITY_Y = Animator.StringToHash("VelocityY");
+    private static readonly int APARAM_ATTACK = Animator.StringToHash("Attack");
+    private static readonly int APARAM_JUMP = Animator.StringToHash("Jump");
+    private static readonly int APARAM_GROUNDED = Animator.StringToHash("Grounded");
 
     private PlayerData _playerData;
     public PlayerData PlayerData
@@ -54,7 +64,11 @@ public class Player : MonoBehaviour
         _shouldJump = false;
 
         if (_animator)
-            _animator.SetFloat(APARAM_VELOCITY, Mathf.Abs(_velocity));
+        {
+            _animator.SetFloat(APARAM_VELOCITY_X, Mathf.Abs(_velocity));
+            _animator.SetFloat(APARAM_VELOCITY_Y, 0f); // TODO
+            _animator.SetBool(APARAM_GROUNDED, _characterController.Grounded);
+        }
     }
 
     public void SetPlayerMaterial(Material mat)
@@ -67,7 +81,15 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (_playerData.Stunned)
+            return;
+
         _playerData.Health -= damage;
+
+        if (!_sfxHurt.isPlaying)
+        {
+            _sfxHurt.Play();
+        }
 
         if (_playerData.Health <= 0)
         {
@@ -109,6 +131,14 @@ public class Player : MonoBehaviour
             return;
 
         _shouldJump = true;
+
+        if (_animator)
+            _animator.SetTrigger(APARAM_JUMP);
+
+        if (!_sfxJump.isPlaying)
+        {
+            _sfxJump.Play();
+        }
     }
 
     public void INPUT_Attack(InputAction.CallbackContext ctx)
@@ -119,7 +149,13 @@ public class Player : MonoBehaviour
         if (_playerData.Stunned)
             return;
 
-        Debug.Log($"Player {_playerData.PlayerIndex} attacked");
+        if (_animator)
+            _animator.SetTrigger(APARAM_ATTACK);
+
+        if (!_sfxAttack.isPlaying)
+        {
+            _sfxAttack.Play();
+        }
     }
 
     public void INPUT_Dash(InputAction.CallbackContext ctx)

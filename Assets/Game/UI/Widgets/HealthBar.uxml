@@ -1,5 +1,5 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="mask" data-source-type="PlayerData, Assembly-CSharp" data-source-path="Health" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; overflow: hidden;">
+    <engine:VisualElement name="mask" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; overflow: hidden;">
         <engine:VisualElement name="Container" style="flex-grow: 1; width: 400px; height: 100%; flex-direction: row; justify-content: space-around; align-content: auto;">
             <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/FilledHeartSprite.png?fileID=2800000&amp;guid=78d0c1b5c78091a41bb276abf3a34629&amp;type=3#FilledHeartSprite&quot;); background-size: 100% 100%;" />
             <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/FilledHeartSprite.png?fileID=2800000&amp;guid=78d0c1b5c78091a41bb276abf3a34629&amp;type=3#FilledHeartSprite&quot;); background-size: 100% 100%;" />

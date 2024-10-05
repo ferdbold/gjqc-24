@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player4
   m_EditorClassIdentifier: 
   PlayerIndex: -1
-  Health: 40.1
+  Health: 100
   Score: 0
   StunProgress: -1
+  PlayerColor: {r: 1, g: 0.61960787, b: 0, a: 1}
