@@ -5,14 +5,17 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [Header("Components")] [SerializeField]
-    private PlayerInput _playerInput;
-
+    [Header("Components")]
+    [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private CharacterController2D _characterController;
     [SerializeField] private MeshRenderer _playerVisual;
+    [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _oneWayCollider;
 
-    [Header("Values")] [SerializeField] private int _stunInputsRequired = 8;
+    [Header("Values")]
+    [SerializeField] private int _stunInputsRequired = 8;
+
+    private static readonly int APARAM_VELOCITY = Animator.StringToHash("Velocity");
 
     private PlayerData _playerData;
     public PlayerData PlayerData
@@ -49,6 +52,9 @@ public class Player : MonoBehaviour
         _characterController.Move(_velocity, _shouldCrouch, _shouldJump);
         _shouldCrouch = false;
         _shouldJump = false;
+
+        if (_animator)
+            _animator.SetFloat(APARAM_VELOCITY, Mathf.Abs(_velocity));
     }
 
     public void SetPlayerMaterial(Material mat)
