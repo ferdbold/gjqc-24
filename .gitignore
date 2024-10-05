@@ -74,3 +74,4 @@ crashlytics-build.properties
 FR2_Cache.asset
 FR2_Cache.asset.meta
 .DS_Store
+Assets/Plugins/ConsolePro/Remote/LiteNetLib/LiteNetLib.csproj.meta
