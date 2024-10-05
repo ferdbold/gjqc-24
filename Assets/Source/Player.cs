@@ -19,7 +19,14 @@ public class Player : MonoBehaviour
     {
         _playerData = ScriptableObject.CreateInstance<PlayerData>();
 
-        Game.OnGameStarted += CB_OnGameStarted;
+#if UNITY_EDITOR
+        if (FindFirstObjectByType<Game>() == null)
+            _gameStarted = true;
+        else
+#endif
+        {
+            Game.OnGameStarted += CB_OnGameStarted;
+        }
     }
 
     private void OnDisable()
