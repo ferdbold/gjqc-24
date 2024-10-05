@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 968221432752661547}
+  _behaviorGraphAgent: {fileID: -6723291913026837572}
   _hitbox: {fileID: 3037743310326419615}
+  _neckMesh: {fileID: 687316708527426503}
 --- !u!114 &-6723291913026837572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +65,9 @@ MonoBehaviour:
   m_Graph: {fileID: -4412729018100908843, guid: 6a3b113639d1c44b7aa3d085083cd1d2, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 3306636196029399643
+  - rid: 3306636216620548583
+  - rid: 3306636216620548802
+  - rid: 3306636217558499959
   references:
     version: 2
     RefIds:
@@ -74,6 +79,30 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 13501528355984765}
+    - rid: 3306636216620548583
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5068230519658919522
+          m_Value1: 4697346876078015751
+        Name: MoveSpeed
+        m_Value: 30
+    - rid: 3306636216620548802
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 18442608005734464953
+          m_Value1: 3024580902714654255
+        Name: ClosestPlayer
+        m_Value: {fileID: 8949321171208187384, guid: 5c144ae2a853a4ebbb4cd84f26385182, type: 3}
+    - rid: 3306636217558499959
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4403733115276171862
+          m_Value1: 3309479365669406962
+        Name: Head
+        m_Value: {fileID: 3828462651123784344}
 --- !u!1 &2180286600278479198
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,9 +205,9 @@ MonoBehaviour:
           z: 0
           w: 0.70710677
     - Position:
-        x: 18.03
+        x: 8
         y: -1
-        z: -0.17
+        z: 3.84
       TangentIn:
         x: 0
         y: 0
@@ -310,6 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4783926334729548076}
   - component: {fileID: 968221432752661547}
+  - component: {fileID: 6105122313032007804}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -355,6 +385,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6105122313032007804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547670292055084722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b57e92e75b4a558720bba975faf81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onChompHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1338535019554797516}
+        m_TargetAssemblyTypeName: HydraHead, Assembly-CSharp
+        m_MethodName: ANIM_ChompHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onChompEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1338535019554797516}
+        m_TargetAssemblyTypeName: HydraHead, Assembly-CSharp
+        m_MethodName: ANIM_ChompEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6316587255604680498
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3828462651123784344}
+  - component: {fileID: 7858911020105318937}
   m_Layer: 0
   m_Name: Head_Pivot
   m_TagString: Untagged
@@ -380,13 +453,27 @@ Transform:
   m_GameObject: {fileID: 6316587255604680498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.03, y: 0, z: -0.17}
+  m_LocalPosition: {x: 8, y: -1.2, z: 3.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2823195846427094514}
   m_Father: {fileID: 1853280151758311497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7858911020105318937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316587255604680498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ebd88048ad45b9852b91d9f21af877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deadzone: 5
+  _target: {fileID: 2823195846427094514}
 --- !u!1 &6538793092635288471
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,14 +499,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6538793092635288471}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.32, y: -1.18, z: 0.08}
+  m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: 0, y: -0, z: -0.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2072969979932181685}
   m_Father: {fileID: 3828462651123784344}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 90}
 --- !u!58 &3037743310326419615
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -482,15 +569,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.67
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.76
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_LocalRotation.w

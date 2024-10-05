@@ -14,10 +14,30 @@ public class Hydra : MonoBehaviour
     [SerializeField] private HydraHead _headPrefab;
 
     private List<HydraHead> _heads = new();
+    private bool _dontSpawnHeads = false;
 
-    public void OnEnable()
+    private void OnEnable()
     {
         _heads.Clear();
+        SpawnHead();
+
+        HydraHead.OnDeath += CB_OnHeadDied;
+    }
+
+    private void OnDisable()
+    {
+        HydraHead.OnDeath -= CB_OnHeadDied;
+    }
+
+    private void CB_OnHeadDied(HydraHead head)
+    {
+        _heads.Remove(head);
+
+        if (_dontSpawnHeads)
+            return;
+
+        SpawnHead();
+        SpawnHead();
     }
 
     public void SpawnHead()
@@ -27,8 +47,20 @@ public class Hydra : MonoBehaviour
     }
 
     [Command("SpawnHead")]
-    public static void COMMAND_SpawnHead()
+    public static void CMD_SpawnHead()
     {
         FindFirstObjectByType<Hydra>().SpawnHead();
+    }
+
+    [Command("KillAllHeads")]
+    public static void CMD_KillAllHeads()
+    {
+        var hydra = FindFirstObjectByType<Hydra>();
+        hydra._dontSpawnHeads = true;
+
+        foreach (var head in hydra._heads)
+            head.Die();
+
+        hydra._dontSpawnHeads = true;
     }
 }
