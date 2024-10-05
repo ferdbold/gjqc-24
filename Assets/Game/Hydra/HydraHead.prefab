@@ -67,7 +67,6 @@ MonoBehaviour:
   - rid: 3306636196029399643
   - rid: 3306636216620548583
   - rid: 3306636216620548802
-  - rid: 3306636217558499959
   references:
     version: 2
     RefIds:
@@ -95,14 +94,6 @@ MonoBehaviour:
           m_Value1: 3024580902714654255
         Name: ClosestPlayer
         m_Value: {fileID: 8949321171208187384, guid: 5c144ae2a853a4ebbb4cd84f26385182, type: 3}
-    - rid: 3306636217558499959
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 4403733115276171862
-          m_Value1: 3309479365669406962
-        Name: Head
-        m_Value: {fileID: 3828462651123784344}
 --- !u!1 &2180286600278479198
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,18 +545,6 @@ PrefabInstance:
     - target: {fileID: 2159352735758699460, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_Name
       value: Hydra_Head_Visual
-      objectReference: {fileID: 0}
-    - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5580664
-      objectReference: {fileID: 0}
-    - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5580664
-      objectReference: {fileID: 0}
-    - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5580664
       objectReference: {fileID: 0}
     - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_LocalPosition.x

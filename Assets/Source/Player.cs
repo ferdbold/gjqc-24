@@ -21,6 +21,10 @@ public class Player : MonoBehaviour
     public AudioSource _sfxHurt;
     public AudioSource _sfxAttack;
 
+    [Header("Rescue Sprite")]
+    public GameObject rescueSpritePrefab; 
+    private GameObject rescueInstance;
+
     private static readonly int APARAM_VELOCITY_X = Animator.StringToHash("VelocityX");
     private static readonly int APARAM_VELOCITY_Y = Animator.StringToHash("VelocityY");
     private static readonly int APARAM_ATTACK = Animator.StringToHash("Attack");
@@ -42,19 +46,21 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-#if UNITY_EDITOR
-        if (FindFirstObjectByType<Game>() == null)
-            _gameStarted = true;
-        else
-#endif
-        {
-            Game.OnGameStarted += CB_OnGameStarted;
-        }
+        Game.OnGameStarted += CB_OnGameStarted;
     }
 
     private void OnDisable()
     {
         Game.OnGameStarted -= CB_OnGameStarted;
+    }
+
+    private void Start()
+    {
+        if (rescueSpritePrefab != null)
+        {
+            rescueInstance = Instantiate(rescueSpritePrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
+            rescueInstance.SetActive(false); // Initially hide it
+        }
     }
 
     private void FixedUpdate()
@@ -109,6 +115,25 @@ public class Player : MonoBehaviour
         Debug.Log($"Player {_playerData.PlayerIndex} recovered");
         _playerData.Health = 100f;
         _playerData.StunProgress = -1;
+        HideRescueSprite(); // Hide the rescue sprite upon recovery
+    }
+
+    public void ShowRescueSprite()
+    {
+        if (rescueInstance != null && !rescueInstance.activeSelf)
+        {
+            rescueInstance.SetActive(true);
+            rescueInstance.transform.position = transform.position + Vector3.up * 2.0f;
+        }
+    }
+
+    // Hide rescue sprite
+    public void HideRescueSprite()
+    {
+        if (rescueInstance != null && rescueInstance.activeSelf)
+        {
+            rescueInstance.SetActive(false);
+        }
     }
 
     public void INPUT_Move(InputAction.CallbackContext ctx)

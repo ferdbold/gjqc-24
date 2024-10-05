@@ -5,7 +5,8 @@ public class PlayerManager : MonoBehaviour
 {
     private List<Player> players = new List<Player>(); // List of player components
     private Dictionary<int, PlayerData> playerDataDict = new Dictionary<int, PlayerData>(); // Map PlayerIndex to PlayerData
-    public GameObject crownPrefab;
+    public GameObject crownPrefab;  // Prefab for the crown
+    public GameObject rescueSpritePrefab;  // Prefab for rescue icon
 
     private Transform crownInstance;
 
@@ -30,6 +31,19 @@ public class PlayerManager : MonoBehaviour
         {
             // No player has a score greater than 0, hide the crown
             crownInstance.gameObject.SetActive(false);
+        }
+
+        // Update rescue sprites for all players
+        foreach (var player in players)
+        {
+            if (player.PlayerData.Stunned)
+            {
+                player.ShowRescueSprite();
+            }
+            else
+            {
+                player.HideRescueSprite();
+            }
         }
     }
 

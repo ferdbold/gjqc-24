@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1187ad610b24c2441ac3afcdb4a5f080
+guid: 17f5b7ce434553542b91a0eb8f0a5241
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,12 +121,122 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: VFX_Blood_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 287
+        width: 166
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f165417ce8d8c449809427940e04e5
+      internalID: 780175443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Blood_1
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 307
+        width: 143
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f45b4f211136da4f95f6f1cd6bfedc0
+      internalID: -1089903586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Blood_2
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 422
+        width: 61
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c1df7ffedfe1047b01a0b5d53cfae2
+      internalID: -1766328097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Blood_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 18
+        width: 222
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a833b9d15c9cd7047bccdd81e24cc36c
+      internalID: 1195768850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Blood_4
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 13
+        width: 176
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbc508960ba7814d8adaa2cf8ca4eb5
+      internalID: -649373862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 528e8664a93267444a375463305cc660
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +245,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VFX_Blood_0: 780175443
+      VFX_Blood_1: -1089903586
+      VFX_Blood_2: -1766328097
+      VFX_Blood_3: 1195768850
+      VFX_Blood_4: -649373862
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
