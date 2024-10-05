@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private MeshRenderer _playerVisual;
 
     private float _velocity;
+    private bool _shouldCrouch;
     private bool _shouldJump;
 
     public void SetPlayerMaterial(Material mat)
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
 
     public void INPUT_Move(InputAction.CallbackContext ctx)
     {
-        _velocity = ctx.ReadValue<Vector2>().x;
+        _velocity = ctx.ReadValue<float>();
     }
 
     public void INPUT_Jump(InputAction.CallbackContext _)
@@ -28,9 +29,25 @@ public class Player : MonoBehaviour
         _shouldJump = true;
     }
 
+    public void INPUT_Attack(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("Attack");
+    }
+
+    public void INPUT_Dash(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("Dash");
+    }
+
+    public void INPUT_Crouch(InputAction.CallbackContext ctx)
+    {
+        _shouldCrouch = true;
+    }
+
     private void FixedUpdate()
     {
-        _characterController.Move(_velocity, false, _shouldJump);
+        _characterController.Move(_velocity, _shouldCrouch, _shouldJump);
+        _shouldCrouch = false;
         _shouldJump = false;
     }
 
