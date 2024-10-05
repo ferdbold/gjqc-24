@@ -1,3 +1,22 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="VisualElement" style="flex-grow: 1;" />
+    <engine:VisualElement style="flex-grow: 1; position: absolute; top: 90%; left: 3%; width: 143px; background-color: rgba(55, 55, 55, 0);">
+        <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/Game%20icons%20(base)/PNG/White/1x/buttonA.png?fileID=2800000&amp;guid=45f96c45d68c0b14c8a3552a3ad058b3&amp;type=3#buttonA&quot;); background-size: 100px 100px; font-size: 50px; position: relative; top: 9px; left: 19px; width: 100px; height: 100px; background-color: rgba(55, 55, 55, 0);" />
+        <engine:Label text="Sauter" name="Label" style="font-size: 50px; top: -29%; left: 94%; color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0); background-size: 100% 100%; -unity-background-scale-mode: stretch-to-fill;" />
+        <engine:VisualElement style="flex-grow: 1; width: 290px; height: 90px; top: -60%; -unity-background-image-tint-color: rgb(97, 97, 97); background-color: rgba(0, 0, 0, 0.22); left: 16%;" />
+    </engine:VisualElement>
+    <engine:VisualElement style="flex-grow: 1; position: absolute; top: 90%; left: 28%; width: 143px; background-color: rgba(55, 55, 55, 0);">
+        <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/Game%20icons%20(base)/PNG/White/1x/buttonX.png?fileID=2800000&amp;guid=18b5c494159d76f4aa1b9b1173b6b59e&amp;type=3#buttonX&quot;); background-size: 100px 100px; font-size: 50px; position: relative; top: 9px; left: 19px; width: 100px; height: 100px; background-color: rgba(55, 55, 55, 0);" />
+        <engine:Label text="Frapper" name="Hit" style="font-size: 50px; top: -30%; left: 79%; color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0); background-size: 100% 100%; -unity-background-scale-mode: stretch-to-fill;" />
+        <engine:VisualElement style="flex-grow: 1; width: 290px; height: 90px; top: -60%; -unity-background-image-tint-color: rgb(97, 97, 97); background-color: rgba(0, 0, 0, 0.22); left: 16%;" />
+    </engine:VisualElement>
+    <engine:VisualElement style="flex-grow: 1; position: absolute; top: 90%; left: 53%; width: 143px; background-color: rgba(55, 55, 55, 0);">
+        <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/Game%20icons%20(base)/PNG/White/1x/buttonB.png?fileID=2800000&amp;guid=a551a84a3b5b5c84e893e73ced44e8ac&amp;type=3#buttonB&quot;); background-size: 100px 100px; font-size: 50px; position: relative; top: 9px; left: 18px; width: 100px; height: 100px; background-color: rgba(55, 55, 55, 0);" />
+        <engine:Label text="Aider" name="Label" style="font-size: 50px; top: -29%; left: 94%; color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0); background-size: 100% 100%; -unity-background-scale-mode: stretch-to-fill;" />
+        <engine:VisualElement style="flex-grow: 1; width: 290px; height: 90px; top: -60%; -unity-background-image-tint-color: rgb(97, 97, 97); background-color: rgba(0, 0, 0, 0.22); left: 16%;" />
+    </engine:VisualElement>
+    <engine:VisualElement style="flex-grow: 1; position: absolute; top: 90%; left: 79%; width: 143px; background-color: rgba(55, 55, 55, 0);">
+        <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/Game%20icons%20(base)/PNG/White/1x/joystickL_side.png?fileID=2800000&amp;guid=6155e0d63f9657a4bbcfecd47a314ac4&amp;type=3#joystickL_side&quot;); background-size: 100px 100px; font-size: 50px; position: relative; top: 9px; left: 20px; width: 100px; height: 100px; background-color: rgba(55, 55, 55, 0);" />
+        <engine:Label text="Bouger" name="Label" style="font-size: 50px; top: -29%; left: 94%; color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0); background-size: 100% 100%; -unity-background-scale-mode: stretch-to-fill;" />
+        <engine:VisualElement style="flex-grow: 1; width: 290px; height: 90px; top: -60%; -unity-background-image-tint-color: rgb(97, 97, 97); background-color: rgba(0, 0, 0, 0.22); left: 16%;" />
+    </engine:VisualElement>
 </engine:UXML>
