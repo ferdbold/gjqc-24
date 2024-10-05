@@ -1075,6 +1075,7 @@ MonoBehaviour:
   _sfxJump: {fileID: 6148304182427098553}
   _sfxHurt: {fileID: 1791429425759758338}
   _sfxAttack: {fileID: 1044409099656587004}
+  rescueSpritePrefab: {fileID: 4155219302034923707, guid: ff1e1d8d6907a1a4e985032b4652db5e, type: 3}
 --- !u!114 &2685299536623211525
 MonoBehaviour:
   m_ObjectHideFlags: 0
