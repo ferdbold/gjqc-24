@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private MeshRenderer _playerVisual;
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _oneWayCollider;
+    [SerializeField] private Collider2D _hitbox;
 
     [Header("Values")]
     [SerializeField] private int _stunInputsRequired = 8;
