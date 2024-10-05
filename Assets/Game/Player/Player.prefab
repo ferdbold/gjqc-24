@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 3470250890278386644}
   - component: {fileID: 6043095772864910847}
   - component: {fileID: 247675118911662231}
-  - component: {fileID: 1271339778372091123}
+  - component: {fileID: 5698157551157622030}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -149,8 +149,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!70 &1271339778372091123
-CapsuleCollider2D:
+--- !u!61 &5698157551157622030
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -162,7 +162,7 @@ CapsuleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -184,8 +184,17 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  m_EdgeRadius: 0
 --- !u!1 &8353852017191242087
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,13 +425,13 @@ MonoBehaviour:
   _jumpForce: 400
   _crouchSpeed: 0.36
   _movementSmoothing: 0.05
-  _airControl: 0
+  _airControl: 1
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 8
   _groundCheck: {fileID: 5952468190078432529}
   _ceilingCheck: {fileID: 2589270120830668279}
-  _crouchDisableCollider: {fileID: 1271339778372091123}
+  _crouchDisableCollider: {fileID: 5698157551157622030}
   _onLandEvent:
     m_PersistentCalls:
       m_Calls: []
