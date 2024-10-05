@@ -5595,7 +5595,7 @@ GameObject:
   - component: {fileID: 1411004891}
   - component: {fileID: 1411004892}
   m_Layer: 0
-  m_Name: CrownManager
+  m_Name: PlayerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5629,6 +5629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crownPrefab: {fileID: 8233191609704533668, guid: 93a1ec7e26f7adf49be5e6d987c06d46, type: 3}
+  rescueSpritePrefab: {fileID: 4155219302034923707, guid: ff1e1d8d6907a1a4e985032b4652db5e, type: 3}
 --- !u!1 &1449870734
 GameObject:
   m_ObjectHideFlags: 0
