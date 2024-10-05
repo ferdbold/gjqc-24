@@ -12,8 +12,13 @@ public class Game : MonoBehaviour
 
     private readonly List<PlayerInput> _playerInputs = new();
 
+    public static Game Instance { get; private set; }
+    public GameData GameData => _gameData;
+
     private void OnEnable()
     {
+        Instance = this;
+
         if (_inputManager != null)
             _inputManager.onPlayerJoined += CB_OnPlayerJoined;
     }
@@ -33,8 +38,12 @@ public class Game : MonoBehaviour
             return;
         }
 
+        player.PlayerData = ScriptableObject.CreateInstance<PlayerData>();
+        player.PlayerData.PlayerIndex = _gameData.Players.Count;
         _gameData.Players.Add(player.PlayerData);
         _playerInputs.Add(playerInput);
+        player.gameObject.name = $"Player {player.PlayerData.PlayerIndex}";
+
         playerInput.actions.FindAction("Start").performed += CB_GameStartRequested;
     }
 

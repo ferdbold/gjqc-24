@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FavoritesAsset
   m_EditorClassIdentifier: 
   FavoriteLists:
-  - Name: Favorites 1
+  - Name: Commons
     Objects:
     - {fileID: 11400000, guid: c52867b78d79343cbabb18664c3a3d33, type: 2}
+    - {fileID: 8949321171208187384, guid: 5c144ae2a853a4ebbb4cd84f26385182, type: 3}
