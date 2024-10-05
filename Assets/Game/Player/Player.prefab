@@ -227,6 +227,91 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &724815296793152622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5376095965967535666}
+  - component: {fileID: 2653386818987843888}
+  - component: {fileID: 800149752199429118}
+  m_Layer: 0
+  m_Name: HitCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5376095965967535666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724815296793152622}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.85, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 6600786287057923878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2653386818987843888
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724815296793152622}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 384
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 127
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.35
+--- !u!114 &800149752199429118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724815296793152622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb511e756cae24ff9b63d9d0d29d6328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 2653386818987843888}
+  _acquireMask:
+    serializedVersion: 2
+    m_Bits: 384
 --- !u!1 &875797777034982862
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +938,7 @@ GameObject:
   - component: {fileID: 6600786287057923878}
   - component: {fileID: 4109435969388710920}
   - component: {fileID: 2816390525339285916}
+  - component: {fileID: 6645829983362470137}
   - component: {fileID: 2685299536623211525}
   - component: {fileID: 8604177289250819301}
   - component: {fileID: 2098834821159908780}
@@ -880,6 +966,7 @@ Transform:
   - {fileID: 5952468190078432529}
   - {fileID: 2589270120830668279}
   - {fileID: 7184451709781720033}
+  - {fileID: 5376095965967535666}
   - {fileID: 8769654080331504733}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -926,8 +1013,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/DualSenseGamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2816390525339285916}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 6645829983362470137}
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: INPUT_Attack
         m_Mode: 0
         m_Arguments:
@@ -1071,10 +1158,29 @@ MonoBehaviour:
   _animator: {fileID: 3519588873842380032}
   _oneWayCollider: {fileID: 3480727554474718185}
   _hitbox: {fileID: 2098834821159908780}
+  _attackCollider: {fileID: 2653386818987843888}
   _stunInputsRequired: 8
   _sfxJump: {fileID: 6148304182427098553}
   _sfxHurt: {fileID: 1791429425759758338}
+--- !u!114 &6645829983362470137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8949321171208187384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d815aad6083f45ea8b95463ad4484623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 2816390525339285916}
+  _animator: {fileID: 3519588873842380032}
+  _hitCollider: {fileID: 2653386818987843888}
+  _targetAcquirer: {fileID: 800149752199429118}
   _sfxAttack: {fileID: 1044409099656587004}
+  _sfxHit: {fileID: 0}
+  _attackDamage: 25
 --- !u!114 &2685299536623211525
 MonoBehaviour:
   m_ObjectHideFlags: 0

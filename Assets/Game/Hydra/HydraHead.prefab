@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 968221432752661547}
   _behaviorGraphAgent: {fileID: -6723291913026837572}
+  _targetAcquirer: {fileID: 6925963286620108379}
   _hitbox: {fileID: 3037743310326419615}
   _neckMesh: {fileID: 687316708527426503}
 --- !u!114 &-6723291913026837572
@@ -205,9 +206,9 @@ MonoBehaviour:
           z: 0
           w: 0.70710677
     - Position:
-        x: 8
+        x: 9.75
         y: -1
-        z: 3.84
+        z: 3.1
       TangentIn:
         x: 0
         y: 0
@@ -453,7 +454,7 @@ Transform:
   m_GameObject: {fileID: 6316587255604680498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: -1.2, z: 3.84}
+  m_LocalPosition: {x: 9.75, y: -1.2, z: 3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -484,7 +485,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2823195846427094514}
   - component: {fileID: 3037743310326419615}
-  m_Layer: 0
+  - component: {fileID: 6925963286620108379}
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +525,7 @@ CircleCollider2D:
     m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 127
+    m_Bits: 383
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -543,6 +545,22 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 1.22, y: -0.87}
   m_Radius: 3
+--- !u!114 &6925963286620108379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6538793092635288471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb511e756cae24ff9b63d9d0d29d6328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 3037743310326419615}
+  _acquireMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1001 &4883961643747793818
 PrefabInstance:
   m_ObjectHideFlags: 0

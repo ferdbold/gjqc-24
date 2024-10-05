@@ -28,8 +28,12 @@ public partial class AttackPlayerAction : Action
     {
         var head = Head.Value;
 
-        foreach (var target in head.TargetsInRange)
-            target.TakeDamage(Damage.Value);
+        foreach (var target in head.TargetAcquirer.Targets)
+        {
+            var takesDamage = target.GetComponent<ITakesDamage>();
+            if (takesDamage != null)
+                takesDamage.TakeDamage(Damage.Value);
+        }
     }
 
     private void CB_OnCrunchEnd()

@@ -1,10 +1,9 @@
 using System;
-using System.Collections.Generic;
 using Unity.Behavior;
 using UnityEngine;
 using Action = System.Action;
 
-public class HydraHead : MonoBehaviour
+public class HydraHead : MonoBehaviour, ITakesDamage
 {
     public static Action<HydraHead> OnDeath;
     public Action OnChompHit;
@@ -13,6 +12,7 @@ public class HydraHead : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Animator _animator;
     [SerializeField] private BehaviorGraphAgent _behaviorGraphAgent;
+    [SerializeField] private TargetAcquirer _targetAcquirer;
     [SerializeField] private Collider2D _hitbox;
     [SerializeField] private MeshFilter _neckMesh;
 
@@ -20,13 +20,11 @@ public class HydraHead : MonoBehaviour
     public Collider2D Hitbox => _hitbox;
     private HydraHeadData _hydraHeadData;
 
-    private readonly List<Player> _targetsInRange = new();
-    public IReadOnlyList<Player> TargetsInRange => _targetsInRange;
+    public TargetAcquirer TargetAcquirer => _targetAcquirer;
 
     private void Awake()
     {
         _hydraHeadData = ScriptableObject.CreateInstance<HydraHeadData>();
-        _targetsInRange.Clear();
     }
 
     private void OnEnable()
@@ -62,21 +60,7 @@ public class HydraHead : MonoBehaviour
             _behaviorGraphAgent.End();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        var player = other.GetComponent<Player>();
-        if (player)
-            _targetsInRange.Add(player);
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        var player = other.GetComponent<Player>();
-        if (player)
-            _targetsInRange.Remove(player);
-    }
-
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         _hydraHeadData.Health -= damage;
 
