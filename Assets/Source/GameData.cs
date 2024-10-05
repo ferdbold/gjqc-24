@@ -12,11 +12,13 @@ public class GameData : ScriptableObject
 {
     public bool Started = false;
     public List<PlayerData> Players = new();
+    public PlayerData WinningPlayer;
 
     private void OnEnable()
     {
         Started = false;
         Players.Clear();
+      
     }
 
 #if UNITY_EDITOR
