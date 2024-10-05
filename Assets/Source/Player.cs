@@ -4,7 +4,11 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput;
+    [SerializeField] private CharacterController2D _characterController;
     [SerializeField] private MeshRenderer _playerVisual;
+
+    private float _velocity;
+    private bool _shouldJump;
 
     public void SetPlayerMaterial(Material mat)
     {
@@ -16,13 +20,18 @@ public class Player : MonoBehaviour
 
     public void INPUT_Move(InputAction.CallbackContext ctx)
     {
-        var value = ctx.ReadValue<Vector2>();
-        transform.position = new Vector3(transform.position.x + value.x, transform.position.y, transform.position.z);
+        _velocity = ctx.ReadValue<Vector2>().x;
     }
 
     public void INPUT_Jump(InputAction.CallbackContext _)
     {
-        Debug.Log("Jump");
+        _shouldJump = true;
+    }
+
+    private void FixedUpdate()
+    {
+        _characterController.Move(_velocity, false, _shouldJump);
+        _shouldJump = false;
     }
 
 #if UNITY_EDITOR
@@ -30,6 +39,9 @@ public class Player : MonoBehaviour
     {
         if (_playerInput == null)
             _playerInput = GetComponent<PlayerInput>();
+
+        if (_characterController == null)
+            _characterController = GetComponent<CharacterController2D>();
     }
 #endif
 }
