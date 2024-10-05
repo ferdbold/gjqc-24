@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     [Header("Values")]
     [SerializeField] private int _stunInputsRequired = 8;
 
+    [Header("AudioSources")]
+    public AudioSource _sourceJump;
+    public AudioSource _sourceHurt;
+    public AudioSource _sourceAttack;
+
     private static readonly int APARAM_VELOCITY = Animator.StringToHash("Velocity");
 
     private PlayerData _playerData;
@@ -30,6 +35,15 @@ public class Player : MonoBehaviour
     private bool _shouldCrouch;
     private bool _shouldJump;
     private float _lastRecover = 0f;
+
+    private void Start()
+    {
+        AudioSource[] audioSources = GetComponentsInChildren<AudioSource>();
+
+        _sourceJump = audioSources[4];
+        _sourceHurt = audioSources[3];
+        _sourceAttack = audioSources[0];
+    }
 
     private void OnEnable()
     {
@@ -69,6 +83,11 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _playerData.Health -= damage;
+
+        if (!_sourceHurt.isPlaying)
+        {
+            _sourceHurt.Play();
+        }
 
         if (_playerData.Health <= 0)
         {
@@ -110,6 +129,11 @@ public class Player : MonoBehaviour
             return;
 
         _shouldJump = true;
+
+        if (!_sourceJump.isPlaying)
+        {
+            _sourceJump.Play();
+        }
     }
 
     public void INPUT_Attack(InputAction.CallbackContext ctx)
@@ -121,6 +145,10 @@ public class Player : MonoBehaviour
             return;
 
         Debug.Log($"Player {_playerData.PlayerIndex} attacked");
+        if (!_sourceAttack.isPlaying)
+        {
+            _sourceAttack.Play();
+        }
     }
 
     public void INPUT_Dash(InputAction.CallbackContext ctx)
