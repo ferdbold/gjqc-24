@@ -1,7 +1,9 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Template name="HealthBar" src="project://database/Assets/Game/UI/Widgets/HealthBar.uxml?fileID=9197481963319205126&amp;guid=02c630358a072594c95dda1fdf6ff8f9&amp;type=3#HealthBar" />
     <engine:Label name="SampleText" data-source="project://database/Assets/Game/Player/Player.asset?fileID=11400000&amp;guid=c52867b78d79343cbabb18664c3a3d33&amp;type=2#Player" data-source-path="_playerName">
         <Bindings>
             <engine:DataBinding property="text" binding-mode="ToTarget" />
         </Bindings>
     </engine:Label>
+    <engine:Instance template="HealthBar" style="width: 676px; height: 100px;" />
 </engine:UXML>

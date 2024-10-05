@@ -45,4 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameData: {fileID: 11400000, guid: 575f47d02f350441396217cbd26a733d, type: 2}
+  _playerDataAssets:
+  - {fileID: 11400000, guid: c52867b78d79343cbabb18664c3a3d33, type: 2}
+  - {fileID: 11400000, guid: 71174d5fccf5f4012b9436d985b87e92, type: 2}
+  - {fileID: 11400000, guid: da2fd091fcd074fc58f5248f22645c10, type: 2}
+  - {fileID: 11400000, guid: 4d14d5803a17d4120b8bebcca8291046, type: 2}
   _inputManager: {fileID: 0}
