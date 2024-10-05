@@ -16,9 +16,10 @@ public partial class AttackPlayerAction : Action
     protected override Status OnStart()
     {
         var head = Head.Value;
-        head.OnCrunchHit += CB_OnCrunchHit;
-        head.OnCrunchEnd += CB_OnCrunchEnd;
-        head.Animator.Play("Chomp");
+        head.OnChompHit += CB_OnCrunchHit;
+        head.OnChompEnd += CB_OnCrunchEnd;
+
+        head.Animator.SetTrigger("Chomp");
 
         return Status.Running;
     }
@@ -40,7 +41,7 @@ public partial class AttackPlayerAction : Action
     protected override void OnEnd()
     {
         var head = Head.Value;
-        head.OnCrunchHit -= CB_OnCrunchHit;
-        head.OnCrunchEnd -= CB_OnCrunchEnd;
+        head.OnChompHit -= CB_OnCrunchHit;
+        head.OnChompEnd -= CB_OnCrunchEnd;
     }
 }
