@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -25,5 +26,9 @@ public class GameData : ScriptableObject
         var boolToDisplayStyle = new ConverterGroup("Bool to Inverse Display Style");
         boolToDisplayStyle.AddConverter((ref bool val) => new StyleEnum<DisplayStyle>(val ? DisplayStyle.None : DisplayStyle.Flex));
         ConverterGroups.RegisterConverterGroup(boolToDisplayStyle);
+
+        var anyPlayers = new ConverterGroup("Any Players to Display Style");
+        anyPlayers.AddConverter((ref List<PlayerData> val) => new StyleEnum<DisplayStyle>(val.Any() ? DisplayStyle.Flex : DisplayStyle.None));
+        ConverterGroups.RegisterConverterGroup(anyPlayers);
     }
 }
