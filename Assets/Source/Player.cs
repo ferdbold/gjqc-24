@@ -7,9 +7,25 @@ public class Player : MonoBehaviour
     [SerializeField] private CharacterController2D _characterController;
     [SerializeField] private MeshRenderer _playerVisual;
 
+    private PlayerData _playerData;
+    public PlayerData PlayerData => _playerData;
+
+    private bool _gameStarted = false;
     private float _velocity;
     private bool _shouldCrouch;
     private bool _shouldJump;
+
+    private void OnEnable()
+    {
+        _playerData = ScriptableObject.CreateInstance<PlayerData>();
+
+        Game.OnGameStarted += CB_OnGameStarted;
+    }
+
+    private void OnDisable()
+    {
+        Game.OnGameStarted -= CB_OnGameStarted;
+    }
 
     public void SetPlayerMaterial(Material mat)
     {
@@ -17,6 +33,16 @@ public class Player : MonoBehaviour
             return;
 
         _playerVisual.material = mat;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!_gameStarted)
+            return;
+
+        _characterController.Move(_velocity, _shouldCrouch, _shouldJump);
+        _shouldCrouch = false;
+        _shouldJump = false;
     }
 
     public void INPUT_Move(InputAction.CallbackContext ctx)
@@ -44,12 +70,8 @@ public class Player : MonoBehaviour
         _shouldCrouch = true;
     }
 
-    private void FixedUpdate()
-    {
-        _characterController.Move(_velocity, _shouldCrouch, _shouldJump);
-        _shouldCrouch = false;
-        _shouldJump = false;
-    }
+    private void CB_OnGameStarted()
+        => _gameStarted = true;
 
 #if UNITY_EDITOR
     private void OnValidate()

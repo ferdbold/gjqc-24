@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ public class Game : MonoBehaviour
 
     [SerializeField] private GameData _gameData;
     [SerializeField] private PlayerInputManager _inputManager;
+
+    private readonly List<PlayerInput> _playerInputs = new();
 
     private void OnEnable()
     {
@@ -23,6 +26,15 @@ public class Game : MonoBehaviour
 
     private void CB_OnPlayerJoined(PlayerInput playerInput)
     {
+        var player = playerInput.GetComponent<Player>();
+        if (player == null)
+        {
+            Debug.LogError("Player could not be found");
+            return;
+        }
+
+        _gameData.Players.Add(player.PlayerData);
+        _playerInputs.Add(playerInput);
         playerInput.actions.FindAction("Start").performed += CB_GameStartRequested;
     }
 
@@ -31,9 +43,18 @@ public class Game : MonoBehaviour
         if (_gameData.Started)
             return;
 
-        // TODO: Disable joining
+        StartGame();
+    }
 
+    private void StartGame()
+    {
+        _inputManager.DisableJoining();
         _gameData.Started = true;
+
+        foreach (var playerInput in _playerInputs)
+            playerInput.actions.FindAction("Start").performed -= CB_GameStartRequested;
+        _playerInputs.Clear();
+
         OnGameStarted?.Invoke();
     }
 }
