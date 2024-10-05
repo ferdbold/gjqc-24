@@ -184,6 +184,17 @@
                 },
                 {
                     "name": "",
+                    "id": "0c5fa5e5-c1e4-460b-a92b-a7b790dbb639",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4f4649ac-64a8-4a73-af11-b3faef356a4d",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
