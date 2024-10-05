@@ -17,3 +17,4 @@ MonoBehaviour:
   Score: 0
   StunProgress: -1
   PlayerColor: {r: 0, g: 1, b: 0.2901961, a: 1}
+  PlayerNumber: 3

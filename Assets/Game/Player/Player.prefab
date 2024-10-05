@@ -1072,9 +1072,9 @@ MonoBehaviour:
   _oneWayCollider: {fileID: 3480727554474718185}
   _hitbox: {fileID: 2098834821159908780}
   _stunInputsRequired: 8
-  _sourceJump: {fileID: 6148304182427098553}
-  _sourceHurt: {fileID: 1791429425759758338}
-  _sourceAttack: {fileID: 1044409099656587004}
+  _sfxJump: {fileID: 6148304182427098553}
+  _sfxHurt: {fileID: 1791429425759758338}
+  _sfxAttack: {fileID: 1044409099656587004}
 --- !u!114 &2685299536623211525
 MonoBehaviour:
   m_ObjectHideFlags: 0

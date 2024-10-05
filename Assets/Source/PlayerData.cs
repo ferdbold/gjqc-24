@@ -14,6 +14,7 @@ public class PlayerData : ScriptableObject
     public int Score;
     public int StunProgress = -1;
     public Color PlayerColor;
+    public int PlayerNumber;
 
     private void OnEnable()
     {
