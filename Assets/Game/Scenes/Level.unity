@@ -5629,7 +5629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crownPrefab: {fileID: 8233191609704533668, guid: 93a1ec7e26f7adf49be5e6d987c06d46, type: 3}
-  rescueSpritePrefab: {fileID: 0}
+  rescueSpritePrefab: {fileID: 4155219302034923707, guid: ff1e1d8d6907a1a4e985032b4652db5e, type: 3}
 --- !u!1 &1449870734
 GameObject:
   m_ObjectHideFlags: 0
