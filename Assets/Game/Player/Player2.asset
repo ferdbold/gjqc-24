@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6415ff069982d48089439e4aef2f1f9c, type: 3}
-  m_Name: Player
+  m_Name: Player2
   m_EditorClassIdentifier: 
-  _playerName: John Hola
+  PlayerIndex: -1
+  Health: 40.1
+  Score: 0
+  StunProgress: -1
