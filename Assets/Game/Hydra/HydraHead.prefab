@@ -52,7 +52,7 @@ MonoBehaviour:
   _behaviorGraphAgent: {fileID: -6723291913026837572}
   _targetAcquirer: {fileID: 6222577153718701213}
   _neckMesh: {fileID: 687316708527426503}
-  _hitRecoilStrength: 10
+  _hitRecoilStrength: 0
   _hitRecoilDuration: 0.5
 --- !u!114 &-6723291913026837572
 MonoBehaviour:
