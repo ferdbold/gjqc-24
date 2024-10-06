@@ -40,14 +40,10 @@ public class PlayerAttack : MonoBehaviour
 
     public void ANIM_HitCheck()
     {
+        var anyValidHit = false;
         if (_targetAcquirer.Targets.Count > 0)
         {
             Debug.Log($"Hit from {_player.PlayerData.PlayerIndex} connected");
-
-            if (_sfxHit)
-                _sfxHit.Play();
-
-            // TODO: Play SFX
         }
 
         for (var i = _targetAcquirer.Targets.Count - 1; i >= 0; i--)
@@ -57,7 +53,24 @@ public class PlayerAttack : MonoBehaviour
 
             var takesDamage = target.GetComponent<ITakesDamage>();
             if (takesDamage != null)
-                takesDamage.TakeDamage(_attackDamage);
+            {
+                var validHit = takesDamage.TakeDamage(_attackDamage, out var killConfirmed);
+                anyValidHit |= validHit;
+
+                if (validHit)
+                    _player.ScoreHit();
+
+                if (killConfirmed)
+                    _player.ScoreKill();
+            }
+        }
+
+        if (anyValidHit)
+        {
+            if (_sfxHit)
+                _sfxHit.Play();
+
+            _player.Recoil();
         }
     }
 

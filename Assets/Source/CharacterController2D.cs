@@ -22,6 +22,8 @@ public class CharacterController2D : MonoBehaviour
 	private bool _facingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 _velocity = Vector3.zero;
 
+	public float Direction => _facingRight ? 1f : -1f;
+
 	[FormerlySerializedAs("OnLandEvent")]
 	[Header("Events")]
 	[Space]

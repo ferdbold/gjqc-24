@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, ITakesDamage
 {
     [Header("Components")]
     [SerializeField] private PlayerInput _playerInput;
+    [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private CharacterController2D _characterController;
     [SerializeField] private Renderer _playerVisual;
     [SerializeField] private Animator _animator;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour, ITakesDamage
 
     [Header("Values")]
     [SerializeField] private int _stunInputsRequired = 8;
+    [SerializeField] private float _recoilStrength = 5f;
 
     [Header("AudioSources")]
     public AudioSource _sfxJump;
@@ -79,7 +81,13 @@ public class Player : MonoBehaviour, ITakesDamage
 
     private void FixedUpdate()
     {
-        _characterController.Move(_playerData.Attacking ? 0f : _velocity, _shouldCrouch, _shouldJump);
+        var vel = _velocity;
+        if (_playerData.Attacking)
+            vel = 0;
+        if (_playerData.Stunned)
+            vel = 0;
+
+        _characterController.Move(vel, _shouldCrouch, _shouldJump);
         _shouldCrouch = false;
         _shouldJump = false;
 
@@ -99,22 +107,34 @@ public class Player : MonoBehaviour, ITakesDamage
         _playerVisual.material = mat;
     }
 
-    public void TakeDamage(float damage)
+    public bool TakeDamage(float damage, out bool killConfirmed)
     {
+        killConfirmed = false;
+
         if (_playerData.Stunned)
-            return;
+            return false;
 
         _playerData.Health -= damage;
 
         if (!_sfxHurt.isPlaying)
         {
             _sfxHurt.Play();
+            Recoil();
         }
 
         if (_playerData.Health <= 0)
         {
             Stun();
+            killConfirmed = true;
         }
+
+        return true;
+    }
+
+    public void Recoil()
+    {
+        var impulse = new Vector2(-_characterController.Direction, 0.5f) * _recoilStrength;
+        _rigidbody.AddForce(impulse, ForceMode2D.Impulse);
     }
 
     public void Stun()
@@ -130,6 +150,18 @@ public class Player : MonoBehaviour, ITakesDamage
         _playerData.Health = 100f;
         _playerData.StunProgress = -1;
         HideRescueSprite(); // Hide the rescue sprite upon recovery
+    }
+
+    public void ScoreHit()
+    {
+        PlayerData.Score += Game.Instance.ScorePerHit;
+        // TODO: SFX
+    }
+
+    public void ScoreKill()
+    {
+        PlayerData.Score += Game.Instance.ScorePerHit;
+        // TODO: SFX
     }
 
     public void ShowRescueSprite()

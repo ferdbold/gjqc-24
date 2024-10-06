@@ -34,7 +34,7 @@ public partial class AttackPlayerAction : Action
 
             var takesDamage = target.GetComponent<ITakesDamage>();
             if (takesDamage != null)
-                takesDamage.TakeDamage(Damage.Value);
+                takesDamage.TakeDamage(Damage.Value, out _);
         }
     }
 
