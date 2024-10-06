@@ -15,6 +15,9 @@ public class Hydra : MonoBehaviour
     [SerializeField] private HydraData _hydraData;
     [SerializeField] private HydraHead _headPrefab;
 
+    [Header("Values")]
+    [SerializeField] private float _maxHeads = 8;
+
     private List<HydraHead> _heads = new();
     private bool _dontSpawnHeads = false;
 
@@ -33,9 +36,11 @@ public class Hydra : MonoBehaviour
 
     private void CB_OnHeadDied(HydraHead head)
     {
+        if (!_heads.Remove(head))
+            return;
+
         Debug.Log("Head died");
 
-        _heads.Remove(head);
         _hydraData.Heads.Remove(head.HydraHeadData);
         _hydraData.HeadsDefeated++;
 
@@ -54,6 +59,9 @@ public class Hydra : MonoBehaviour
 
     public void SpawnHead()
     {
+        if (_heads.Count >= _maxHeads)
+            return;
+
         Debug.Log("Spawning head");
         var newHead = Instantiate(_headPrefab, _neckAnchor);
         _heads.Add(newHead);

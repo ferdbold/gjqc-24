@@ -7,21 +7,9 @@ public class TargetAcquirer : MonoBehaviour
     [SerializeField] private LayerMask _acquireMask;
     [SerializeField] private List<GameObject> _exclude = new();
 
-    private readonly List<GameObject> _targets = new();
+    [SerializeField] private List<GameObject> _targets = new();
 
-    public IReadOnlyList<GameObject> Targets
-    {
-        get
-        {
-            for (var i = _targets.Count - 1; i >= 0; i--)
-            {
-                if (_targets[i] == null)
-                    _targets.RemoveAt(i);
-            }
-
-            return _targets;
-        }
-    }
+    public IReadOnlyList<GameObject> Targets => _targets;
 
     private void OnEnable()
     {
@@ -61,7 +49,7 @@ public class TargetAcquirer : MonoBehaviour
     {
         if (other.TryGetComponent(out GameObjectProxy gameObjectProxy))
         {
-            if (_targets.Remove(other.gameObject))
+            if (_targets.Remove(gameObjectProxy.Target))
                 Debug.Log($"{name} lost {gameObjectProxy.Target.name}");
         }
         else

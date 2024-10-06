@@ -20,7 +20,6 @@ public class GameData : ScriptableObject
     {
         Started = false;
         Players.Clear();
-      
     }
 
 #if UNITY_EDITOR

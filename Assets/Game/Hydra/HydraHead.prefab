@@ -52,7 +52,7 @@ MonoBehaviour:
   _behaviorGraphAgent: {fileID: -6723291913026837572}
   _targetAcquirer: {fileID: 6222577153718701213}
   _neckMesh: {fileID: 687316708527426503}
-  _hitRecoilStrength: 5
+  _hitRecoilStrength: 10
   _hitRecoilDuration: 0.5
 --- !u!114 &-6723291913026837572
 MonoBehaviour:
@@ -72,6 +72,7 @@ MonoBehaviour:
   - rid: 3306636216620548583
   - rid: 3306636216620548802
   - rid: 3306636221265478310
+  - rid: 3306636222639637166
   references:
     version: 2
     RefIds:
@@ -107,6 +108,14 @@ MonoBehaviour:
           m_Value1: 9603534174352642936
         Name: AttackCooldown
         m_Value: 3
+    - rid: 3306636222639637166
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4403733115276171862
+          m_Value1: 3309479365669406962
+        Name: Head
+        m_Value: {fileID: 3828462651123784344}
 --- !u!1 &1024575420653241632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,6 +1830,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _exclude: []
+  _targets: []
 --- !u!114 &1870977906232669698
 MonoBehaviour:
   m_ObjectHideFlags: 0
