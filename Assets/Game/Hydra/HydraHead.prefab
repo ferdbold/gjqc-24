@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7297725250598813297}
   - component: {fileID: 1338535019554797516}
   - component: {fileID: -6723291913026837572}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HydraHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6253224590770761562}
   - component: {fileID: 3420943311358867995}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX10_Roar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1745698691798225024}
   - component: {fileID: 7229725573844629958}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX2_HeadChompBite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2700786466777107803}
   - component: {fileID: 7832557142070864064}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX3_HeadChompMiss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 6474976200351357980}
   - component: {fileID: 1798282004249218782}
   - component: {fileID: 1964789541646927037}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Spline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7737916521110956839}
   - component: {fileID: 3128662980389995013}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX0_HeadSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,7 +874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979468847052907093}
   - component: {fileID: 1382136350030815297}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX8_HeadMeteorShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4979615178694416084}
   - component: {fileID: 3644672335839142118}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX4_HeadDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1132,7 +1132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7657263449238221004}
   - component: {fileID: 5936449091184620382}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX7_HeadPoisonExhale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1262,7 +1262,7 @@ GameObject:
   - component: {fileID: 4783926334729548076}
   - component: {fileID: 968221432752661547}
   - component: {fileID: 6105122313032007804}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1389,7 +1389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6625437154063279736}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1433,7 +1433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3417212852291801184}
   - component: {fileID: 7821307251474153659}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX5_HeadFireBreath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1566,7 +1566,7 @@ GameObject:
   - component: {fileID: 6735506375927817597}
   - component: {fileID: 6889129787155651786}
   - component: {fileID: 1805343092481254955}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Spline (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1787,7 +1787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 452617702891475463}
   - component: {fileID: 8664078349542119274}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX9_HeadMeteorExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1918,7 +1918,7 @@ GameObject:
   - component: {fileID: 7858911020105318937}
   - component: {fileID: 8791488316245561215}
   - component: {fileID: 7514582101040737338}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Head_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2016,7 +2016,7 @@ GameObject:
   - component: {fileID: 3037743310326419615}
   - component: {fileID: 6222577153718701213}
   - component: {fileID: 1870977906232669698}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2116,7 +2116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 511014940352593184}
   - component: {fileID: 8452092584145186272}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX6_HeadHurt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2245,7 +2245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8906404552946581834}
   - component: {fileID: 5297397859034072210}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX11_EarthCrash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2374,7 +2374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2605731023313095589}
   - component: {fileID: 3978395757778432850}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SFX1_HeadChompHiss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2563,7 +2563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f49cc3645c6d8749ad5aa16828268b3, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2583,45 +2583,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2823195846427094514}
     m_Modifications:
-    - target: {fileID: 175730965708891908, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 334755432827197386, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 790580733575506445, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2159352735758699460, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_Name
       value: Hydra_Head_Visual
       objectReference: {fileID: 0}
-    - target: {fileID: 2159352735758699460, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329831863951241739, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5585183547766865722, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 5752251177565364770, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6373695729372474404, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814411540643765505, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2662,14 +2634,6 @@ PrefabInstance:
     - target: {fileID: 6846590786567429935, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 23.994
-      objectReference: {fileID: 0}
-    - target: {fileID: 7280910989272961832, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7649842813296034906, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2767,7 +2731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4f49cc3645c6d8749ad5aa16828268b3, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
