@@ -47,7 +47,7 @@ public class PlayerAttack : MonoBehaviour
             if (_sfxHit)
                 _sfxHit.Play();
 
-            // TODO: Play SFX
+            _player.Recoil();
         }
 
         for (var i = _targetAcquirer.Targets.Count - 1; i >= 0; i--)

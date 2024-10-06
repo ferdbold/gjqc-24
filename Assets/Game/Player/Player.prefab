@@ -1184,13 +1184,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 4109435969388710920}
+  _rigidbody: {fileID: 8604177289250819301}
   _characterController: {fileID: 2685299536623211525}
   _playerVisual: {fileID: 761637044492573718}
   _animator: {fileID: 3519588873842380032}
   _oneWayCollider: {fileID: 3480727554474718185}
   _hitbox: {fileID: 2098834821159908780}
   _attackCollider: {fileID: 2653386818987843888}
-  _stunInputsRequired: 8
+  _stunInputsRequired: 25
+  _recoilStrength: 25
   _sfxJump: {fileID: 6148304182427098553}
   _sfxHurt: {fileID: 1791429425759758338}
   rescueSpritePrefab: {fileID: 4155219302034923707, guid: ff1e1d8d6907a1a4e985032b4652db5e, type: 3}
