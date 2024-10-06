@@ -50,4 +50,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 71174d5fccf5f4012b9436d985b87e92, type: 2}
   - {fileID: 11400000, guid: da2fd091fcd074fc58f5248f22645c10, type: 2}
   - {fileID: 11400000, guid: 4d14d5803a17d4120b8bebcca8291046, type: 2}
+  _playerSpawnPoints: []
   _inputManager: {fileID: 0}
+  ScorePerHit: 1
+  ScorePerPlayerKill: 5
+  ScorePerHydraKill: 10
+  ScorePerGoldenKill: 25
+  ScorePerRevive: 10

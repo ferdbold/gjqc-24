@@ -1,10 +1,19 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:Template name="HealthBar" src="project://database/Assets/Game/UI/Widgets/HealthBar.uxml?fileID=9197481963319205126&amp;guid=02c630358a072594c95dda1fdf6ff8f9&amp;type=3#HealthBar" />
-    <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-2117067172&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_1&quot;); background-size: 100% 100%; rotate: 0; top: 917px; left: 1211px; height: 146px; width: 759px; position: absolute;">
+    <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-2117067172&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_1&quot;); background-size: 100% 100%; rotate: 0; top: 917px; left: 1211px; height: 146px; width: 759px; position: absolute; transition-property: scale; transition-duration: 0.3s; transition-timing-function: ease-out-bounce;">
         <engine:Label text="J4&#10;" name="P4Name" style="position: absolute; top: 36px; left: 454px; background-color: rgba(0, 0, 0, 0); font-size: 70px; color: rgb(255, 158, 0); -unity-font-style: bold; -unity-text-outline-width: 1px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); right: 132px; bottom: 93px; -unity-text-outline-color: rgb(0, 0, 0);" />
         <engine:Instance template="HealthBar" data-source="project://database/Assets/Game/Player/Player4.asset?fileID=11400000&amp;guid=4d14d5803a17d4120b8bebcca8291046&amp;type=2#Player4" data-source-path="Health" name="P4Health" style="width: 400px; height: 102px; align-self: auto; justify-content: flex-end; flex-direction: column; top: auto; left: auto; position: absolute; right: 297px; bottom: 16px;" />
+        <engine:Label text="Label" name="P4Score" data-source="project://database/Assets/Game/Player/Player4.asset?fileID=11400000&amp;guid=4d14d5803a17d4120b8bebcca8291046&amp;type=2#Player4" style="font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); position: absolute; top: 41px; left: 577px; rotate: 0; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-align: upper-center; width: 91px;">
+            <Bindings>
+                <engine:DataBinding property="text" data-source-path="Score" />
+                <engine:DataBinding property="style.color" data-source-path="PlayerColor" />
+            </Bindings>
+        </engine:Label>
+        <Bindings>
+            <engine:DataBinding property="style.scale" data-source-path="IsP4Present" data-source="project://database/Assets/Game/Core/Game.asset?fileID=11400000&amp;guid=575f47d02f350441396217cbd26a733d&amp;type=2#Game" binding-mode="ToTarget" source-to-ui-converters="Bool to Scale" />
+        </Bindings>
     </engine:VisualElement>
-    <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-2117067172&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_1&quot;); background-size: 100% 100%; rotate: 180deg; top: -18px; left: -41px; height: 146px; width: 759px; position: absolute;">
+    <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-2117067172&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_1&quot;); background-size: 100% 100%; rotate: 180deg; top: -18px; left: -41px; height: 146px; width: 759px; position: absolute; scale: 1 1;">
         <engine:Label text="J1" name="P1Name" style="position: absolute; top: 27px; left: 470px; background-color: rgba(0, 0, 0, 0); font-size: 70px; color: rgb(255, 0, 0); -unity-font-style: bold; -unity-text-outline-width: 1px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); rotate: 180deg; -unity-text-outline-color: rgb(0, 0, 0);" />
         <engine:Instance template="HealthBar" name="P1Health" data-source="project://database/Assets/Game/Player/Player1.asset?fileID=11400000&amp;guid=c52867b78d79343cbabb18664c3a3d33&amp;type=2#Player1" data-source-path="Health" style="width: 400px; height: 98px; top: 21px; left: 73px; position: absolute; rotate: 180deg;" />
         <engine:Label text="Label" name="P1Score" style="font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); position: absolute; top: 34px; left: 574px; rotate: 180deg; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);">
@@ -13,31 +22,34 @@
                 <engine:DataBinding property="style.color" data-source-path="PlayerColor" data-source="project://database/Assets/Game/Player/Player1.asset?fileID=11400000&amp;guid=c52867b78d79343cbabb18664c3a3d33&amp;type=2#Player1" binding-mode="ToTarget" />
             </Bindings>
         </engine:Label>
+        <Bindings>
+            <engine:DataBinding property="style.scale" data-source-path="IsP1Present" data-source="project://database/Assets/Game/Core/Game.asset?fileID=11400000&amp;guid=575f47d02f350441396217cbd26a733d&amp;type=2#Game" binding-mode="ToTarget" source-to-ui-converters="Bool to Scale" />
+        </Bindings>
     </engine:VisualElement>
     <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-2117067172&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_1&quot;); background-size: 100% 100%; rotate: 180deg; top: 915px; left: -43px; height: 146px; width: 759px; position: absolute;">
         <engine:Instance template="HealthBar" data-source="project://database/Assets/Game/Player/Player3.asset?fileID=11400000&amp;guid=da2fd091fcd074fc58f5248f22645c10&amp;type=2#Player3" data-source-path="Health" name="P3Health" style="width: 400px; height: 100px; position: absolute; top: auto; left: 65px; right: auto; bottom: 29px; rotate: 180deg;" />
         <engine:Label text="J3" name="P3Name" style="position: absolute; top: auto; left: 455px; background-color: rgba(0, 0, 0, 0); font-size: 70px; color: rgb(0, 255, 74); -unity-font-style: bold; -unity-text-outline-width: 1px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); bottom: 37px; rotate: 180deg; -unity-text-outline-color: rgb(0, 0, 0);" />
-    </engine:VisualElement>
-    <engine:Label text="Label" name="P4Score" data-source="project://database/Assets/Game/Player/Player4.asset?fileID=11400000&amp;guid=4d14d5803a17d4120b8bebcca8291046&amp;type=2#Player4" style="font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); position: absolute; top: 957px; left: 1786px; rotate: 0; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-align: upper-center;">
+        <engine:Label text="Label" name="P3Score" data-source="project://database/Assets/Game/Player/Player3.asset?fileID=11400000&amp;guid=da2fd091fcd074fc58f5248f22645c10&amp;type=2#Player3" style="font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); position: absolute; top: 35px; left: 575px; rotate: 0; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-align: upper-center; width: 87px;">
+            <Bindings>
+                <engine:DataBinding property="text" data-source-path="Score" />
+                <engine:DataBinding property="style.color" data-source-path="PlayerColor" />
+            </Bindings>
+        </engine:Label>
         <Bindings>
-            <engine:DataBinding property="text" data-source-path="Score" />
-            <engine:DataBinding property="style.color" data-source-path="PlayerColor" />
+            <engine:DataBinding property="style.scale" data-source-path="IsP3Present" data-source="project://database/Assets/Game/Core/Game.asset?fileID=11400000&amp;guid=575f47d02f350441396217cbd26a733d&amp;type=2#Game" binding-mode="ToTarget" source-to-ui-converters="Bool to Scale" />
         </Bindings>
-    </engine:Label>
+    </engine:VisualElement>
     <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-2117067172&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_1&quot;); background-size: 100% 100%; rotate: 0; top: -9px; left: 1210px; height: 146px; width: 759px; position: absolute;">
         <engine:Instance template="HealthBar" data-source="project://database/Assets/Game/Player/Player2.asset?fileID=11400000&amp;guid=71174d5fccf5f4012b9436d985b87e92&amp;type=2#Player2" data-source-path="Health" name="P2Health" style="width: 400px; height: 100px; position: absolute; right: 297px; top: 26px;" />
         <engine:Label text="J2" name="P2Name" style="position: absolute; top: 33px; left: 456px; background-color: rgba(0, 0, 0, 0); font-size: 70px; color: rgb(0, 9, 255); -unity-font-style: bold; -unity-text-outline-width: 1px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); right: auto; -unity-text-outline-color: rgb(0, 0, 0);" />
+        <engine:Label text="Label" name="P2Score" data-source="project://database/Assets/Game/Player/Player2.asset?fileID=11400000&amp;guid=71174d5fccf5f4012b9436d985b87e92&amp;type=2#Player2" style="font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); position: absolute; top: 39px; left: 578px; rotate: 0; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-align: upper-center; width: 82px;">
+            <Bindings>
+                <engine:DataBinding property="text" data-source-path="Score" />
+                <engine:DataBinding property="style.color" data-source-path="PlayerColor" />
+            </Bindings>
+        </engine:Label>
+        <Bindings>
+            <engine:DataBinding property="style.scale" data-source-path="IsP2Present" data-source="project://database/Assets/Game/Core/Game.asset?fileID=11400000&amp;guid=575f47d02f350441396217cbd26a733d&amp;type=2#Game" binding-mode="ToTarget" source-to-ui-converters="Bool to Scale" />
+        </Bindings>
     </engine:VisualElement>
-    <engine:Label text="Label" name="P2Score" data-source="project://database/Assets/Game/Player/Player2.asset?fileID=11400000&amp;guid=71174d5fccf5f4012b9436d985b87e92&amp;type=2#Player2" style="font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); position: absolute; top: 27px; left: 1784px; rotate: 0; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-align: upper-center;">
-        <Bindings>
-            <engine:DataBinding property="text" data-source-path="Score" />
-            <engine:DataBinding property="style.color" data-source-path="PlayerColor" />
-        </Bindings>
-    </engine:Label>
-    <engine:Label text="Label" name="P3Score" data-source="project://database/Assets/Game/Player/Player3.asset?fileID=11400000&amp;guid=da2fd091fcd074fc58f5248f22645c10&amp;type=2#Player3" style="font-size: 60px; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); position: absolute; top: 962px; left: 44px; rotate: 0; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0); -unity-text-align: upper-center;">
-        <Bindings>
-            <engine:DataBinding property="text" data-source-path="Score" />
-            <engine:DataBinding property="style.color" data-source-path="PlayerColor" />
-        </Bindings>
-    </engine:Label>
 </engine:UXML>

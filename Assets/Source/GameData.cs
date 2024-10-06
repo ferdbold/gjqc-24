@@ -20,6 +20,11 @@ public class GameData : ScriptableObject
     [CreateProperty] public bool GameWon => TimeLeft <= 0f;
     [CreateProperty] public int TimeLeftInt => (int)TimeLeft;
 
+    [CreateProperty] public bool IsP1Present => Players.Count >= 1;
+    [CreateProperty] public bool IsP2Present => Players.Count >= 2;
+    [CreateProperty] public bool IsP3Present => Players.Count >= 3;
+    [CreateProperty] public bool IsP4Present => Players.Count >= 4;
+
     private void OnEnable() => Reset();
     private void OnDisable() => Reset();
 
@@ -49,5 +54,9 @@ public class GameData : ScriptableObject
         var anyPlayers = new ConverterGroup("Any Players to Display Style");
         anyPlayers.AddConverter((ref List<PlayerData> val) => new StyleEnum<DisplayStyle>(val.Any() ? DisplayStyle.Flex : DisplayStyle.None));
         ConverterGroups.RegisterConverterGroup(anyPlayers);
+
+        var boolToScale = new ConverterGroup("Bool to Scale");
+        boolToScale.AddConverter((ref bool val) => new StyleScale(val ? Vector2.one : Vector2.zero));
+        ConverterGroups.RegisterConverterGroup(boolToScale);
     }
 }

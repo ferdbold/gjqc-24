@@ -19,7 +19,8 @@ public class Game : MonoBehaviour
 
     [Header("Values")]
     public int ScorePerHit = 1;
-    public int ScorePerKill = 10;
+    public int ScorePerPlayerKill = 5;
+    public int ScorePerHydraKill = 10;
     public int ScorePerGoldenKill = 25;
     public int ScorePerRevive = 10;
 
