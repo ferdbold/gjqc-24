@@ -1499,6 +1499,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6149023392719417937, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
+      propertyPath: EmissionModule.m_BurstCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2261192868873709897, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
     - {fileID: 5989041760796816592, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
