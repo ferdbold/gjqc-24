@@ -26,8 +26,7 @@ public class Player : MonoBehaviour, ITakesDamage
     public AudioSource _sfxHurt;
 
     [Header("Rescue Sprite")]
-    public GameObject rescueSpritePrefab;
-    private GameObject rescueInstance;
+    [SerializeField] private GameObject rescueInstance;
 
     private static readonly int APARAM_VELOCITY_X = Animator.StringToHash("VelocityX");
     private static readonly int APARAM_VELOCITY_Y = Animator.StringToHash("VelocityY");
@@ -76,15 +75,6 @@ public class Player : MonoBehaviour, ITakesDamage
         Game.OnGameReset -= CB_OnGameReset;
 
         _targetsInRange.Clear();
-    }
-
-    private void Start()
-    {
-        if (rescueSpritePrefab != null)
-        {
-            rescueInstance = Instantiate(rescueSpritePrefab, transform.position + Vector3.up * 1.5f, Quaternion.identity);
-            rescueInstance.SetActive(false); // Initially hide it
-        }
     }
 
     private void FixedUpdate()
@@ -186,7 +176,6 @@ public class Player : MonoBehaviour, ITakesDamage
         if (rescueInstance != null && !rescueInstance.activeSelf)
         {
             rescueInstance.SetActive(true);
-            rescueInstance.transform.position = transform.position + Vector3.up * 2.0f;
         }
     }
 

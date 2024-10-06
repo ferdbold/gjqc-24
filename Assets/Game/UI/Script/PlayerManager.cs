@@ -6,7 +6,6 @@ public class PlayerManager : MonoBehaviour
     private List<Player> players = new List<Player>(); // List of player components
     private Dictionary<int, PlayerData> playerDataDict = new Dictionary<int, PlayerData>(); // Map PlayerIndex to PlayerData
     public GameObject crownPrefab;  // Prefab for the crown
-    public GameObject rescueSpritePrefab;  // Prefab for rescue icon
 
     private Transform crownInstance;
 
