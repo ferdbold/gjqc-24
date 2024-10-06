@@ -18,6 +18,7 @@ public class GameData : ScriptableObject
     public float TimeLeft = 30f;
 
     [CreateProperty] public bool GameWon => TimeLeft <= 0f;
+    [CreateProperty] public int TimeLeftInt => (int)TimeLeft;
 
     private void OnEnable() => Reset();
     private void OnDisable() => Reset();
