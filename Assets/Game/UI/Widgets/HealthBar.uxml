@@ -1,10 +1,26 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:VisualElement name="mask" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; overflow: hidden;">
         <engine:VisualElement name="Container" style="flex-grow: 1; width: 400px; height: 100%; flex-direction: row; justify-content: space-around; align-content: auto;">
-            <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/FilledHeartSprite.png?fileID=2800000&amp;guid=78d0c1b5c78091a41bb276abf3a34629&amp;type=3#FilledHeartSprite&quot;); background-size: 100% 100%;" />
-            <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/FilledHeartSprite.png?fileID=2800000&amp;guid=78d0c1b5c78091a41bb276abf3a34629&amp;type=3#FilledHeartSprite&quot;); background-size: 100% 100%;" />
-            <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/FilledHeartSprite.png?fileID=2800000&amp;guid=78d0c1b5c78091a41bb276abf3a34629&amp;type=3#FilledHeartSprite&quot;); background-size: 100% 100%;" />
-            <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI%20Assets/FilledHeartSprite.png?fileID=2800000&amp;guid=78d0c1b5c78091a41bb276abf3a34629&amp;type=3#FilledHeartSprite&quot;); background-size: 100% 100%; height: auto; width: auto;" />
+            <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-561777170&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_2&quot;); background-size: 96% 82%; -unity-background-image-tint-color: rgb(212, 67, 67);">
+                <Bindings>
+                    <engine:DataBinding property="style.unityBackgroundImageTintColor" data-source-path="PlayerColor" data-source-type="PlayerData, Assembly-CSharp" binding-mode="ToTarget" update-trigger="OnSourceChanged" />
+                </Bindings>
+            </engine:VisualElement>
+            <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-561777170&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_2&quot;); background-size: 96% 82%; -unity-background-image-tint-color: rgb(212, 67, 67);">
+                <Bindings>
+                    <engine:DataBinding property="style.unityBackgroundImageTintColor" data-source-path="PlayerColor" data-source-type="PlayerData, Assembly-CSharp" binding-mode="ToTarget" update-trigger="OnSourceChanged" />
+                </Bindings>
+            </engine:VisualElement>
+            <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-561777170&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_2&quot;); background-size: 96% 82%; -unity-background-image-tint-color: rgb(212, 67, 67);">
+                <Bindings>
+                    <engine:DataBinding property="style.unityBackgroundImageTintColor" data-source-path="PlayerColor" data-source-type="PlayerData, Assembly-CSharp" binding-mode="ToTarget" update-trigger="OnSourceChanged" />
+                </Bindings>
+            </engine:VisualElement>
+            <engine:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=-561777170&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_2&quot;); background-size: 96% 82%; -unity-background-image-tint-color: rgb(212, 67, 67);">
+                <Bindings>
+                    <engine:DataBinding property="style.unityBackgroundImageTintColor" data-source-path="PlayerColor" data-source-type="PlayerData, Assembly-CSharp" binding-mode="ToTarget" update-trigger="OnSourceChanged" />
+                </Bindings>
+            </engine:VisualElement>
         </engine:VisualElement>
         <Bindings>
             <engine:DataBinding property="style.width" binding-mode="ToTarget" source-to-ui-converters="Float to StyleLength Percent" />
