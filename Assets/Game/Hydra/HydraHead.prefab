@@ -49,9 +49,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _head: {fileID: 3828462651123784344}
   _animator: {fileID: 968221432752661547}
+  _splineContainer: {fileID: 0}
+  _splineHeadDeathAnimation: {fileID: 0}
   _behaviorGraphAgent: {fileID: -6723291913026837572}
   _targetAcquirer: {fileID: 6222577153718701213}
   _neckMesh: {fileID: 687316708527426503}
+  _sfxHiss: {fileID: 0}
+  _sfxChomp: {fileID: 0}
+  _sfxHurt: {fileID: 0}
+  _sfxDeath: {fileID: 0}
   _hitRecoilStrength: 0
   _hitRecoilDuration: 0.5
 --- !u!114 &-6723291913026837572
@@ -72,7 +78,7 @@ MonoBehaviour:
   - rid: 3306636216620548583
   - rid: 3306636216620548802
   - rid: 3306636221265478310
-  - rid: 3306636222639637166
+  - rid: 3306636223766332067
   references:
     version: 2
     RefIds:
@@ -108,13 +114,13 @@ MonoBehaviour:
           m_Value1: 9603534174352642936
         Name: AttackCooldown
         m_Value: 3
-    - rid: 3306636222639637166
+    - rid: 3306636223766332067
       type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
-          m_Value0: 4403733115276171862
-          m_Value1: 3309479365669406962
-        Name: Head
+          m_Value0: 5238774302864269239
+          m_Value1: 10702757645499193317
+        Name: Pivot
         m_Value: {fileID: 3828462651123784344}
 --- !u!1 &1024575420653241632
 GameObject:
@@ -605,9 +611,9 @@ MonoBehaviour:
           z: 0
           w: 0.70710677
     - Position:
-        x: 9.75
+        x: 11.01
         y: -1
-        z: 3.1
+        z: 2.52
       TangentIn:
         x: 0
         y: 0
@@ -707,7 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Container: {fileID: 864186456125139776}
   m_RebuildOnSplineChange: 1
-  m_RebuildFrequency: 18
+  m_RebuildFrequency: 30
   m_UpdateColliders: 1
   m_Sides: 19
   m_SegmentsPerUnit: 1
@@ -1343,6 +1349,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onDeathChop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1338535019554797516}
+        m_TargetAssemblyTypeName: HydraHead, Assembly-CSharp
+        m_MethodName: ANIM_DeathChop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onDeathEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1338535019554797516}
+        m_TargetAssemblyTypeName: HydraHead, Assembly-CSharp
+        m_MethodName: ANIM_DeathEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4613463023161060604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,7 +1708,7 @@ Transform:
   m_GameObject: {fileID: 6316587255604680498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.75, y: -1.2, z: 3.1}
+  m_LocalPosition: {x: 11.01, y: -1.2, z: 2.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1770,7 +1806,7 @@ Transform:
   m_GameObject: {fileID: 6538793092635288471}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 0, y: -0, z: -0.53}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
