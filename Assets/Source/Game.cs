@@ -7,9 +7,16 @@ public class Game : MonoBehaviour
 {
     public static Action OnGameStarted;
 
+    [Header("References")]
     [SerializeField] private GameData _gameData;
     [SerializeField] private List<PlayerData> _playerDataAssets = new();
     [SerializeField] private PlayerInputManager _inputManager;
+
+    [Header("Values")]
+    [SerializeField] private int _scorePerHit = 1;
+    [SerializeField] private int _scorePerKill = 10;
+    [SerializeField] private int _scorePerGoldenKill = 25;
+    [SerializeField] private int _scorePerRevive = 10;
 
     private readonly List<PlayerInput> _playerInputs = new();
 

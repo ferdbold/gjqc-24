@@ -24,10 +24,10 @@ public class PlayerAttack : MonoBehaviour
         if (!_player.GameStarted)
             return;
 
-        if (_player.PlayerData.Stunned)
+        if (_player.PlayerData.Stunned || _player.PlayerData.Attacking)
             return;
 
-        Debug.Log($"Player {_player.PlayerData.PlayerIndex} attacked");
+        _player.PlayerData.Attacking = true;
 
         if (_animator)
             _animator.SetTrigger(APARAM_ATTACK);
@@ -59,6 +59,11 @@ public class PlayerAttack : MonoBehaviour
             if (takesDamage != null)
                 takesDamage.TakeDamage(_attackDamage);
         }
+    }
+
+    public void ANIM_AttackEnd()
+    {
+        _player.PlayerData.Attacking = false;
     }
 
 #if UNITY_EDITOR
