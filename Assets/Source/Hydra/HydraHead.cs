@@ -13,11 +13,9 @@ public class HydraHead : MonoBehaviour, ITakesDamage
     [SerializeField] private Animator _animator;
     [SerializeField] private BehaviorGraphAgent _behaviorGraphAgent;
     [SerializeField] private TargetAcquirer _targetAcquirer;
-    [SerializeField] private Collider2D _hitbox;
     [SerializeField] private MeshFilter _neckMesh;
 
     public Animator Animator => _animator;
-    public Collider2D Hitbox => _hitbox;
     private HydraHeadData _hydraHeadData;
 
     public TargetAcquirer TargetAcquirer => _targetAcquirer;
@@ -31,11 +29,11 @@ public class HydraHead : MonoBehaviour, ITakesDamage
     {
         if (Game.Instance != null && Game.Instance.GameData.Started)
         {
-            if (_behaviorGraphAgent)
-                _behaviorGraphAgent.Start();
+            _behaviorGraphAgent.enabled = true;
         }
         else
         {
+            _behaviorGraphAgent.enabled = false;
             Game.OnGameStarted += CB_OnGameStarted;
         }
 
@@ -49,9 +47,7 @@ public class HydraHead : MonoBehaviour, ITakesDamage
     private void CB_OnGameStarted()
     {
         Game.OnGameStarted -= CB_OnGameStarted;
-
-        if (_behaviorGraphAgent)
-            _behaviorGraphAgent.Start();
+        _behaviorGraphAgent.enabled = true;
     }
 
     private void OnDisable()

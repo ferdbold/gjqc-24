@@ -30,6 +30,8 @@ public partial class AttackPlayerAction : Action
 
         foreach (var target in head.TargetAcquirer.Targets)
         {
+            Debug.Log($"{Head.Value.name} hit target {target.name}");
+
             var takesDamage = target.GetComponent<ITakesDamage>();
             if (takesDamage != null)
                 takesDamage.TakeDamage(Damage.Value);
@@ -47,5 +49,7 @@ public partial class AttackPlayerAction : Action
         var head = Head.Value;
         head.OnChompHit -= CB_OnCrunchHit;
         head.OnChompEnd -= CB_OnCrunchEnd;
+
+        _completed = false;
     }
 }

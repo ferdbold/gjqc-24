@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void CB_HitCheck()
+    public void ANIM_HitCheck()
     {
         if (_targetAcquirer.Targets.Count > 0)
         {
@@ -52,6 +52,8 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (var target in _targetAcquirer.Targets)
         {
+            Debug.Log($"{gameObject.name} hit {target}");
+
             var takesDamage = target.GetComponent<ITakesDamage>();
             if (takesDamage != null)
                 takesDamage.TakeDamage(_attackDamage);

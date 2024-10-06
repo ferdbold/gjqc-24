@@ -1162,6 +1162,7 @@ MonoBehaviour:
   _stunInputsRequired: 8
   _sfxJump: {fileID: 6148304182427098553}
   _sfxHurt: {fileID: 1791429425759758338}
+  rescueSpritePrefab: {fileID: 4155219302034923707, guid: ff1e1d8d6907a1a4e985032b4652db5e, type: 3}
 --- !u!114 &6645829983362470137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,7 +1180,8 @@ MonoBehaviour:
   _hitCollider: {fileID: 2653386818987843888}
   _targetAcquirer: {fileID: 800149752199429118}
   _sfxAttack: {fileID: 1044409099656587004}
-  rescueSpritePrefab: {fileID: 4155219302034923707, guid: ff1e1d8d6907a1a4e985032b4652db5e, type: 3}
+  _sfxHit: {fileID: 0}
+  _attackDamage: 25
 --- !u!114 &2685299536623211525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,7 +1473,10 @@ PrefabInstance:
     - {fileID: 5989041760796816592, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2566043344144028960, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6940766536619889419}
   m_SourcePrefab: {fileID: 100100000, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
 --- !u!212 &761637044492573718 stripped
 SpriteRenderer:
@@ -1483,6 +1488,38 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6965561861905469767, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
   m_PrefabInstance: {fileID: 5796892437111151687}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8353852017191242087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2566043344144028960, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
+  m_PrefabInstance: {fileID: 5796892437111151687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6940766536619889419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8353852017191242087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07dab948e62f45639991e53bcb9d82af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onHitCheck:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6645829983362470137}
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
+        m_MethodName: ANIM_HitCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &9055599367187360772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3303743613612912707, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
