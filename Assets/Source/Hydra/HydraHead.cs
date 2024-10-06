@@ -82,7 +82,7 @@ public class HydraHead : MonoBehaviour, ITakesDamage
     {
         var randomAngle = Random.value * 360f;
         var normalizedVect = new Vector2((float)Math.Cos(randomAngle), (float)Math.Sin(randomAngle));
-        var impulse = Mathf.Lerp(0f, _hitRecoilStrength, Random.value) * normalizedVect;
+        var impulse = Mathf.Lerp(_hitRecoilStrength / 2, _hitRecoilStrength, Random.value) * normalizedVect;
         var dest = new Vector3(_head.position.x + impulse.x, _head.position.y, _head.position.z + impulse.y);
         Tween.Position(_head, dest, _hitRecoilDuration);
     }
