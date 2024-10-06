@@ -14,7 +14,7 @@ public class PlayerData : ScriptableObject
     public int Score;
     public int StunProgress = -1;
     public Color PlayerColor;
-    public int PlayerNumber;
+    public bool Attacking = false;
 
     private void OnEnable()
     {
@@ -22,9 +22,10 @@ public class PlayerData : ScriptableObject
         Health = 100f;
         Score = 0;
         StunProgress = -1;
-
+        Attacking = false;
     }
 
+    [CreateProperty] public int PlayerNumber => PlayerIndex + 1;
     [CreateProperty] public bool Stunned => StunProgress >= 0;
 
 #if UNITY_EDITOR

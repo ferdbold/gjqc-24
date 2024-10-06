@@ -23,7 +23,7 @@ public class Player : MonoBehaviour, ITakesDamage
     public AudioSource _sfxHurt;
 
     [Header("Rescue Sprite")]
-    public GameObject rescueSpritePrefab; 
+    public GameObject rescueSpritePrefab;
     private GameObject rescueInstance;
 
     private static readonly int APARAM_VELOCITY_X = Animator.StringToHash("VelocityX");
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour, ITakesDamage
 
     private void FixedUpdate()
     {
-        _characterController.Move(_velocity, _shouldCrouch, _shouldJump);
+        _characterController.Move(_playerData.Attacking ? 0f : _velocity, _shouldCrouch, _shouldJump);
         _shouldCrouch = false;
         _shouldJump = false;
 
