@@ -15,6 +15,7 @@ public class Player : MonoBehaviour, ITakesDamage
     [SerializeField] private Collider2D _oneWayCollider;
     [SerializeField] private Collider2D _hitbox;
     [SerializeField] private Collider2D _attackCollider;
+    [SerializeField] private ParticleSystem _crownGainVFX;
 
     [Header("Values")]
     [SerializeField] private int _stunInputsRequired = 8;
@@ -156,16 +157,17 @@ public class Player : MonoBehaviour, ITakesDamage
         HideRescueSprite(); // Hide the rescue sprite upon recovery
     }
 
-    public void ScoreHit()
+    public void Score(int amount)
     {
-        PlayerData.Score += Game.Instance.ScorePerHit;
-        // TODO: SFX
-    }
+        PlayerData.Score += amount;
 
-    public void ScoreKill()
-    {
-        PlayerData.Score += Game.Instance.ScorePerHit;
-        // TODO: SFX
+        if (_crownGainVFX != null)
+        {
+            var burst = _crownGainVFX.emission.GetBurst(0);
+            burst.cycleCount = amount;
+            _crownGainVFX.emission.SetBurst(0, burst);
+            _crownGainVFX.Play();
+        }
     }
 
     public void ShowRescueSprite()

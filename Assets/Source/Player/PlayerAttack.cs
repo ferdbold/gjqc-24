@@ -58,10 +58,10 @@ public class PlayerAttack : MonoBehaviour
                 anyValidHit |= validHit;
 
                 if (validHit)
-                    _player.ScoreHit();
+                    _player.Score(Game.Instance.ScorePerHit);
 
                 if (killConfirmed)
-                    _player.ScoreKill();
+                    _player.Score(Game.Instance.ScorePerKill);
             }
         }
 

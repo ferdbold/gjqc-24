@@ -994,6 +994,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9055599367187360772}
+  - {fileID: 700866440684747664}
   - {fileID: 5952468190078432529}
   - {fileID: 2589270120830668279}
   - {fileID: 7184451709781720033}
@@ -1191,6 +1192,7 @@ MonoBehaviour:
   _oneWayCollider: {fileID: 3480727554474718185}
   _hitbox: {fileID: 2098834821159908780}
   _attackCollider: {fileID: 2653386818987843888}
+  _crownGainVFX: {fileID: 1240187952462431436}
   _stunInputsRequired: 25
   _recoilStrength: 25
   _sfxJump: {fileID: 6148304182427098553}
@@ -1524,4 +1526,47 @@ Animator:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3303743613612912707, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
   m_PrefabInstance: {fileID: 5796892437111151687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8099758256610476882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6600786287057923878}
+    m_Modifications:
+    - target: {fileID: 3299728909872332216, guid: f511c75fdf5430944bffcdd639446696, type: 3}
+      propertyPath: m_Name
+      value: VFX_Crown_Gain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778049387114772674, guid: f511c75fdf5430944bffcdd639446696, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778049387114772674, guid: f511c75fdf5430944bffcdd639446696, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778049387114772674, guid: f511c75fdf5430944bffcdd639446696, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778049387114772674, guid: f511c75fdf5430944bffcdd639446696, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f511c75fdf5430944bffcdd639446696, type: 3}
+--- !u!4 &700866440684747664 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8778049387114772674, guid: f511c75fdf5430944bffcdd639446696, type: 3}
+  m_PrefabInstance: {fileID: 8099758256610476882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1240187952462431436 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7016071002432997278, guid: f511c75fdf5430944bffcdd639446696, type: 3}
+  m_PrefabInstance: {fileID: 8099758256610476882}
   m_PrefabAsset: {fileID: 0}
