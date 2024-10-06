@@ -54,10 +54,10 @@ MonoBehaviour:
   _behaviorGraphAgent: {fileID: -6723291913026837572}
   _targetAcquirer: {fileID: 6222577153718701213}
   _neckMesh: {fileID: 687316708527426503}
-  _sfxHiss: {fileID: 0}
-  _sfxChomp: {fileID: 0}
-  _sfxHurt: {fileID: 0}
-  _sfxDeath: {fileID: 0}
+  _sfxHiss: {fileID: 3978395757778432850}
+  _sfxChomp: {fileID: 7229725573844629958}
+  _sfxHurt: {fileID: 8452092584145186272}
+  _sfxDeath: {fileID: 3644672335839142118}
   _hitRecoilStrength: 0
   _hitRecoilDuration: 0.5
 --- !u!114 &-6723291913026837572
