@@ -15,7 +15,7 @@ TagManager:
   - Player
   - HydraHead
   - Hydra_Layer
-  - 
+  - Player_Visual_In_Front
   - 
   - 
   - 
@@ -40,6 +40,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player_Visual_Sorting
+    uniqueID: 3867620109
+    locked: 0
+  - name: Hydra_Sorting
+    uniqueID: 355134221
+    locked: 0
+  - name: BG_Sorting
+    uniqueID: 1857634277
     locked: 0
   m_RenderingLayers:
   - Default
