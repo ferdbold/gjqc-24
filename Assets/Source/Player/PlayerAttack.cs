@@ -61,7 +61,12 @@ public class PlayerAttack : MonoBehaviour
                     _player.Score(Game.Instance.ScorePerHit);
 
                 if (killConfirmed)
-                    _player.Score(Game.Instance.ScorePerKill);
+                {
+                    var pointValue = target is Player
+                        ? Game.Instance.ScorePerPlayerKill
+                        : Game.Instance.ScorePerHydraKill;
+                    _player.Score(pointValue);
+                }
             }
         }
 
