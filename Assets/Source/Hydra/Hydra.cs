@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using PrimeTween;
 using QFSW.QC;
 using UnityEngine;
 
@@ -36,8 +37,8 @@ public class Hydra : MonoBehaviour
         if (_dontSpawnHeads)
             return;
 
-        SpawnHead();
-        SpawnHead();
+        Tween.Custom(0f, 0f, 1f, _ => { }).OnComplete(SpawnHead);
+        Tween.Custom(0f, 0f, 2f, _ => { }).OnComplete(SpawnHead);
     }
 
     public void SpawnHead()
