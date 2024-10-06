@@ -289,13 +289,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4441746169722218725}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.45005208, y: -1.2601455, z: 4.9}
+  m_LocalRotation: {x: -0.00014724885, y: -0.00009810045, z: 0.40188268, w: 0.9156912}
+  m_LocalPosition: {x: -0.45005208, y: -13.91, z: -0.79}
   m_LocalScale: {x: 0.90010417, y: 0.90010417, z: 0.90010417}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 235649548547294856}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.011, y: -0.017, z: 47.392}
 --- !u!198 &2610286972632168393
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -433,7 +433,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 20
-      minScalar: 1
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -550,8 +550,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 0.9
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -927,11 +927,11 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 10
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -1014,7 +1014,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 4.8
+      value: 4.3
       mode: 0
       spread: 0
       speed:
@@ -1071,7 +1071,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 84.8
       mode: 0
       spread: 0
       speed:
@@ -1133,8 +1133,8 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 80
-      minScalar: 60
+      scalar: 200
+      minScalar: 150
       maxCurve:
         serializedVersion: 2
         m_Curve:
