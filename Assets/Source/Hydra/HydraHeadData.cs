@@ -8,7 +8,10 @@ public class HydraHeadData : ScriptableObject
 
     [CreateProperty] public bool Dead => Health <= 0;
 
-    private void OnEnable()
+    private void OnEnable() => Reset();
+    private void OnDisable() => Reset();
+
+    public void Reset()
     {
         Health = 250f;
     }

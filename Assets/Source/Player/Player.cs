@@ -43,6 +43,8 @@ public class Player : MonoBehaviour, ITakesDamage
     }
 
     private bool _gameStarted = false;
+    private bool _gameEnded = false;
+
     public bool GameStarted => _gameStarted;
     private float _velocity;
     private bool _shouldCrouch;
@@ -60,6 +62,8 @@ public class Player : MonoBehaviour, ITakesDamage
 #endif
         {
             Game.OnGameStarted += CB_OnGameStarted;
+            Game.OnGameEnded += CB_OnGameEnded;
+            Game.OnGameReset += CB_OnGameReset;
         }
 
         _targetsInRange.Clear();
@@ -68,6 +72,8 @@ public class Player : MonoBehaviour, ITakesDamage
     private void OnDisable()
     {
         Game.OnGameStarted -= CB_OnGameStarted;
+        Game.OnGameEnded -= CB_OnGameEnded;
+        Game.OnGameReset -= CB_OnGameReset;
 
         _targetsInRange.Clear();
     }
@@ -87,6 +93,8 @@ public class Player : MonoBehaviour, ITakesDamage
         if (_playerData.Attacking)
             vel = 0;
         if (_playerData.Stunned)
+            vel = 0;
+        if (Game.Instance.GameData.GameWon)
             vel = 0;
 
         _characterController.Move(vel, _shouldCrouch, _shouldJump);
@@ -193,7 +201,7 @@ public class Player : MonoBehaviour, ITakesDamage
 
     public void INPUT_Move(InputAction.CallbackContext ctx)
     {
-        if (!_gameStarted)
+        if (!_gameStarted || _gameEnded)
             return;
 
         if (_playerData.Stunned)
@@ -207,7 +215,7 @@ public class Player : MonoBehaviour, ITakesDamage
         if (ctx.phase != InputActionPhase.Performed)
             return;
 
-        if (!_gameStarted)
+        if (!_gameStarted || _gameEnded)
             return;
 
         if (_playerData.Stunned)
@@ -229,7 +237,7 @@ public class Player : MonoBehaviour, ITakesDamage
         if (ctx.phase != InputActionPhase.Performed)
             return;
 
-        if (!_gameStarted)
+        if (!_gameStarted || _gameEnded)
             return;
 
         if (_playerData.Stunned)
@@ -243,7 +251,7 @@ public class Player : MonoBehaviour, ITakesDamage
         if (ctx.phase != InputActionPhase.Performed)
             return;
 
-        if (!_gameStarted)
+        if (!_gameStarted || _gameEnded)
             return;
 
         if (_playerData.Stunned)
@@ -259,7 +267,7 @@ public class Player : MonoBehaviour, ITakesDamage
         if (ctx.phase != InputActionPhase.Performed)
             return;
 
-        if (!_gameStarted)
+        if (!_gameStarted || _gameEnded)
             return;
 
         if (!_playerData.Stunned)
@@ -282,6 +290,14 @@ public class Player : MonoBehaviour, ITakesDamage
 
     private void CB_OnGameStarted()
         => _gameStarted = true;
+
+    private void CB_OnGameEnded()
+        => _gameEnded = true;
+
+    private void CB_OnGameReset()
+    {
+        _playerData.Reset();
+    }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     [Command("Stun")]

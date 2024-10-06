@@ -26,12 +26,19 @@ public class Hydra : MonoBehaviour
         _heads.Clear();
         SpawnHead();
 
+        Game.OnGameReset += CB_OnGameReset;
         HydraHead.OnDeath += CB_OnHeadDied;
     }
 
     private void OnDisable()
     {
+        Game.OnGameReset -= CB_OnGameReset;
         HydraHead.OnDeath -= CB_OnHeadDied;
+    }
+
+    private void CB_OnGameReset()
+    {
+        _hydraData.Reset();
     }
 
     private void CB_OnHeadDied(HydraHead head)
