@@ -20,6 +20,7 @@ MonoBehaviour:
     - {fileID: 102900000, guid: 2bc2f37ffbfa2e34684c15a0fae48458, type: 3}
     - {fileID: 9197481963319205126, guid: 02c630358a072594c95dda1fdf6ff8f9, type: 3}
     - {fileID: 9197481963319205126, guid: f69a81ba0256845cabef901769b3e210, type: 3}
+    - {fileID: 102900000, guid: 38ad2ae816c96a8409ff4c6eaa91e71c, type: 3}
     - {fileID: 8949321171208187384, guid: 5c144ae2a853a4ebbb4cd84f26385182, type: 3}
     - {fileID: 11400000, guid: c52867b78d79343cbabb18664c3a3d33, type: 2}
     - {fileID: 11400000, guid: 71174d5fccf5f4012b9436d985b87e92, type: 2}
@@ -30,3 +31,5 @@ MonoBehaviour:
     Objects:
     - {fileID: 108940383739702658, guid: 7a295781c13ab4bb687c32f8151e848d, type: 3}
     - {fileID: 13501528355984765, guid: 0a6b065db34301e44829b471143e4d52, type: 3}
+    - {fileID: 102900000, guid: 38ad2ae816c96a8409ff4c6eaa91e71c, type: 3}
+    - {fileID: 8949321171208187384, guid: 5c144ae2a853a4ebbb4cd84f26385182, type: 3}
