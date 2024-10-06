@@ -3,10 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Jam/Hydra Head")]
 public class HydraHeadData : ScriptableObject
 {
-    [Range(0, 100)] public float Health = 100f;
+    [Range(0, 200)] public float Health = 200f;
 
     private void OnEnable()
     {
-        Health = 100f;
+        Health = 200f;
     }
 }
