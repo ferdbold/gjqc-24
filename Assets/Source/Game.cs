@@ -42,7 +42,7 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        if (_gameData.Started && !_gameData.Ended)
+        if (_gameData.Started && !_gameData.GameWon)
         {
             _gameData.TimeLeft -= Time.deltaTime;
 
