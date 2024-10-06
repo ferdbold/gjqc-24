@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,13 +15,18 @@ public class GameData : ScriptableObject
     public List<PlayerData> Players = new();
     public PlayerData WinningPlayer;
     public bool GameLost = false;
-    public bool GameWon = false;
-    public float TimeLeft= 30f;
+    public float TimeLeft = 30f;
 
-    private void OnEnable()
+    [CreateProperty] public bool GameWon => TimeLeft <= 0f;
+
+    private void OnEnable() => Reset();
+    private void OnDisable() => Reset();
+
+    private void Reset()
     {
         Started = false;
         Players.Clear();
+        WinningPlayer = null;
         TimeLeft = 30f;
     }
 

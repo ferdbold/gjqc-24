@@ -1499,6 +1499,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412296657910650476, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 6693982350520914593, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
       propertyPath: _onHitCheck.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

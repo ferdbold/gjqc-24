@@ -16,7 +16,10 @@ public class PlayerData : ScriptableObject
     public Color PlayerColor;
     public bool Attacking = false;
 
-    private void OnEnable()
+    private void OnEnable() => Reset();
+    private void OnDisable() => Reset();
+
+    private void Reset()
     {
         PlayerIndex = -1;
         Health = 100f;

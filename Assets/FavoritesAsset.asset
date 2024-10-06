@@ -30,6 +30,7 @@ MonoBehaviour:
     - {fileID: 9197481963319205126, guid: f10896db2a8261349be335aeee1d5c1d, type: 3}
   - Name: Fred
     Objects:
+    - {fileID: 11400000, guid: 575f47d02f350441396217cbd26a733d, type: 2}
     - {fileID: 108940383739702658, guid: 7a295781c13ab4bb687c32f8151e848d, type: 3}
     - {fileID: 13501528355984765, guid: 0a6b065db34301e44829b471143e4d52, type: 3}
     - {fileID: 102900000, guid: 38ad2ae816c96a8409ff4c6eaa91e71c, type: 3}
