@@ -26,11 +26,15 @@ public class TargetAcquirer : MonoBehaviour
     private void OnEnable()
     {
         _targets.Clear();
+
+        HydraHead.OnDeath += CB_OnHeadDeath;
     }
 
     private void OnDisable()
     {
         _targets.Clear();
+
+        HydraHead.OnDeath -= CB_OnHeadDeath;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -65,6 +69,11 @@ public class TargetAcquirer : MonoBehaviour
             if (_targets.Remove(other.gameObject))
                 Debug.Log($"{name} lost {other.gameObject.name}");
         }
+    }
+
+    private void CB_OnHeadDeath(HydraHead head)
+    {
+        _targets.Remove(head.gameObject);
     }
 
 #if UNITY_EDITOR

@@ -50,8 +50,9 @@ public class PlayerAttack : MonoBehaviour
             // TODO: Play SFX
         }
 
-        foreach (var target in _targetAcquirer.Targets)
+        for (var i = _targetAcquirer.Targets.Count - 1; i >= 0; i--)
         {
+            var target = _targetAcquirer.Targets[i];
             Debug.Log($"{gameObject.name} hit {target}");
 
             var takesDamage = target.GetComponent<ITakesDamage>();

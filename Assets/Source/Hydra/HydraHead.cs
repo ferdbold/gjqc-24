@@ -24,6 +24,7 @@ public class HydraHead : MonoBehaviour, ITakesDamage
 
     public Animator Animator => _animator;
     private HydraHeadData _hydraHeadData;
+    public HydraHeadData HydraHeadData => _hydraHeadData;
 
     public TargetAcquirer TargetAcquirer => _targetAcquirer;
 
@@ -88,7 +89,10 @@ public class HydraHead : MonoBehaviour, ITakesDamage
 
     public void Die()
     {
+        _behaviorGraphAgent.enabled = false;
+
         OnDeath?.Invoke(this);
+
         Destroy(gameObject); // TODO: Plug animation and SFX
     }
 

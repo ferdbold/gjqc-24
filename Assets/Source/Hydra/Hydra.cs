@@ -12,6 +12,7 @@ public class Hydra : MonoBehaviour
     [SerializeField] private Transform _neckAnchor;
 
     [Header("References")]
+    [SerializeField] private HydraData _hydraData;
     [SerializeField] private HydraHead _headPrefab;
 
     private List<HydraHead> _heads = new();
@@ -33,7 +34,10 @@ public class Hydra : MonoBehaviour
     private void CB_OnHeadDied(HydraHead head)
     {
         Debug.Log("Head died");
+
         _heads.Remove(head);
+        _hydraData.Heads.Remove(head.HydraHeadData);
+        _hydraData.HeadsDefeated++;
 
         if (_dontSpawnHeads)
             return;
@@ -50,8 +54,10 @@ public class Hydra : MonoBehaviour
 
     public void SpawnHead()
     {
+        Debug.Log("Spawning head");
         var newHead = Instantiate(_headPrefab, _neckAnchor);
         _heads.Add(newHead);
+        _hydraData.Heads.Add(newHead.HydraHeadData);
     }
 
     [Command("SpawnHead")]
