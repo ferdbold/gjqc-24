@@ -20,6 +20,7 @@ public class HydraHead : MonoBehaviour, ITakesDamage
     [SerializeField] private BehaviorGraphAgent _behaviorGraphAgent;
     [SerializeField] private TargetAcquirer _targetAcquirer;
     [SerializeField] private MeshFilter _neckMesh;
+    [SerializeField] private MeshFilter _neckOutlineMesh;
 
     [Header("Audio")]
     [SerializeField] private AudioSource _sfxHiss;
@@ -63,6 +64,12 @@ public class HydraHead : MonoBehaviour, ITakesDamage
             var mesh = Instantiate(_neckMesh.sharedMesh);
             _neckMesh.mesh = mesh;
         }
+
+        if (_neckOutlineMesh)
+        {
+            var mesh = Instantiate(_neckOutlineMesh.sharedMesh);
+            _neckOutlineMesh.mesh = mesh;
+        }
     }
 
     private void CB_OnGameStarted()
@@ -94,6 +101,8 @@ public class HydraHead : MonoBehaviour, ITakesDamage
         else
         {
             HitRecoil();
+
+            HitMarkers.PlayHitMarker(_head.position);
         }
 
         return true;

@@ -121,6 +121,12 @@ public class Player : MonoBehaviour, ITakesDamage
         if (!_sfxHurt.isPlaying)
         {
             _sfxHurt.Play();
+
+            if (_animator)
+                _animator.SetTrigger(APARAM_HURT);
+
+            HitMarkers.PlayHitMarker(transform.position);
+
             Recoil();
         }
 
@@ -135,9 +141,6 @@ public class Player : MonoBehaviour, ITakesDamage
 
     public void Recoil()
     {
-        if (_animator)
-            _animator.SetTrigger(APARAM_HURT);
-
         var impulse = new Vector2(-_characterController.Direction, 0.5f) * _recoilStrength;
         _rigidbody.AddForce(impulse, ForceMode2D.Impulse);
     }
