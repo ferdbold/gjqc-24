@@ -5,9 +5,23 @@ public class TargetAcquirer : MonoBehaviour
 {
     [SerializeField] private Collider2D _collider;
     [SerializeField] private LayerMask _acquireMask;
+    [SerializeField] private List<GameObject> _exclude = new();
 
     private readonly List<GameObject> _targets = new();
-    public IReadOnlyList<GameObject> Targets => _targets;
+
+    public IReadOnlyList<GameObject> Targets
+    {
+        get
+        {
+            for (var i = _targets.Count - 1; i >= 0; i--)
+            {
+                if (_targets[i] == null)
+                    _targets.RemoveAt(i);
+            }
+
+            return _targets;
+        }
+    }
 
     private void OnEnable()
     {
@@ -21,6 +35,9 @@ public class TargetAcquirer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (_exclude.Contains(other.gameObject))
+            return;
+
         if (_acquireMask == (_acquireMask | (1 << other.gameObject.layer)))
         {
             if (other.TryGetComponent(out GameObjectProxy gameObjectProxy))
@@ -38,8 +55,16 @@ public class TargetAcquirer : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log($"{name} lost {other.gameObject.name}");
-        _targets.Remove(other.gameObject);
+        if (other.TryGetComponent(out GameObjectProxy gameObjectProxy))
+        {
+            if (_targets.Remove(other.gameObject))
+                Debug.Log($"{name} lost {gameObjectProxy.Target.name}");
+        }
+        else
+        {
+            if (_targets.Remove(other.gameObject))
+                Debug.Log($"{name} lost {other.gameObject.name}");
+        }
     }
 
 #if UNITY_EDITOR

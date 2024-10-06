@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using QFSW.QC;
 using UnityEngine;
@@ -36,7 +37,13 @@ public class Hydra : MonoBehaviour
         if (_dontSpawnHeads)
             return;
 
-        SpawnHead();
+        StartCoroutine(SpawnHead_Coroutine(1f));
+        StartCoroutine(SpawnHead_Coroutine(2f));
+    }
+
+    private IEnumerator SpawnHead_Coroutine(float wait)
+    {
+        yield return new WaitForSeconds(wait);
         SpawnHead();
     }
 
