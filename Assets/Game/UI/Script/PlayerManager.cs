@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         Player highestScoringPlayer = GetHighestScoringPlayer();
-        
+
         if (highestScoringPlayer != null)
         {
             FollowPlayer(highestScoringPlayer.transform);
@@ -80,7 +80,7 @@ public class PlayerManager : MonoBehaviour
         {
             // Position the crown above the player's head
             crownInstance.gameObject.SetActive(true); // Ensure the crown is visible
-            Vector3 crownPosition = playerTransform.position + Vector3.up * 1.5f;
+            var crownPosition = playerTransform.position + Vector3.up * 2f + new Vector3(0f, 0f, -2f);
             crownInstance.position = crownPosition;
         }
     }
