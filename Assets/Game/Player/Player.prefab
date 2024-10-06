@@ -255,7 +255,7 @@ Transform:
   m_GameObject: {fileID: 724815296793152622}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.85, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0.35, y: 1.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -296,7 +296,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.35
+  m_Radius: 2.88
 --- !u!114 &800149752199429118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,7 +497,7 @@ Transform:
   m_GameObject: {fileID: 4775906551995043116}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.55, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1495,23 +1495,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5989041760796816592, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6149023392719417937, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
-      propertyPath: EmissionModule.m_BurstCount
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2261192868873709897, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
-    - {fileID: 5989041760796816592, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
+    - target: {fileID: 6693982350520914593, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
+      propertyPath: _onHitCheck.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6645829983362470137}
+    - target: {fileID: 6693982350520914593, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
+      propertyPath: _onAttackEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6645829983362470137}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2566043344144028960, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6940766536619889419}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
 --- !u!212 &761637044492573718 stripped
 SpriteRenderer:
@@ -1523,53 +1518,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6965561861905469767, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
   m_PrefabInstance: {fileID: 5796892437111151687}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8353852017191242087 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2566043344144028960, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
-  m_PrefabInstance: {fileID: 5796892437111151687}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6940766536619889419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8353852017191242087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07dab948e62f45639991e53bcb9d82af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onHitCheck:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6645829983362470137}
-        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
-        m_MethodName: ANIM_HitCheck
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onAttackEnd:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6645829983362470137}
-        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
-        m_MethodName: ANIM_AttackEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &9055599367187360772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3303743613612912707, guid: 8052f0da9d9070b4ebb19fcd44b936c5, type: 3}
