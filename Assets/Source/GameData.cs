@@ -15,11 +15,13 @@ public class GameData : ScriptableObject
     public PlayerData WinningPlayer;
     public bool GameLost = false;
     public bool GameWon = false;
+    public float TimeLeft= 30f;
 
     private void OnEnable()
     {
         Started = false;
         Players.Clear();
+        TimeLeft = 30f;
     }
 
 #if UNITY_EDITOR
