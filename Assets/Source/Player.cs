@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using System.Linq;
 using QFSW.QC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ITakesDamage
 {
     [Header("Components")]
     [SerializeField] private PlayerInput _playerInput;
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _oneWayCollider;
     [SerializeField] private Collider2D _hitbox;
+    [SerializeField] private Collider2D _attackCollider;
 
     [Header("Values")]
     [SerializeField] private int _stunInputsRequired = 8;
@@ -19,7 +21,6 @@ public class Player : MonoBehaviour
     [Header("AudioSources")]
     public AudioSource _sfxJump;
     public AudioSource _sfxHurt;
-    public AudioSource _sfxAttack;
 
     [Header("Rescue Sprite")]
     public GameObject rescueSpritePrefab; 
@@ -27,7 +28,6 @@ public class Player : MonoBehaviour
 
     private static readonly int APARAM_VELOCITY_X = Animator.StringToHash("VelocityX");
     private static readonly int APARAM_VELOCITY_Y = Animator.StringToHash("VelocityY");
-    private static readonly int APARAM_ATTACK = Animator.StringToHash("Attack");
     private static readonly int APARAM_JUMP = Animator.StringToHash("Jump");
     private static readonly int APARAM_GROUNDED = Animator.StringToHash("Grounded");
 
@@ -39,19 +39,33 @@ public class Player : MonoBehaviour
     }
 
     private bool _gameStarted = false;
+    public bool GameStarted => _gameStarted;
     private float _velocity;
     private bool _shouldCrouch;
     private bool _shouldJump;
     private float _lastRecover = 0f;
 
+    private List<HydraHead> _targetsInRange = new();
+
     private void OnEnable()
     {
-        Game.OnGameStarted += CB_OnGameStarted;
+#if UNITY_EDITOR
+        if (FindFirstObjectByType<Game>() == null)
+            _gameStarted = true;
+        else
+#endif
+        {
+            Game.OnGameStarted += CB_OnGameStarted;
+        }
+
+        _targetsInRange.Clear();
     }
 
     private void OnDisable()
     {
         Game.OnGameStarted -= CB_OnGameStarted;
+
+        _targetsInRange.Clear();
     }
 
     private void Start()
@@ -147,8 +161,11 @@ public class Player : MonoBehaviour
         _velocity = ctx.ReadValue<float>();
     }
 
-    public void INPUT_Jump(InputAction.CallbackContext _)
+    public void INPUT_Jump(InputAction.CallbackContext ctx)
     {
+        if (ctx.phase != InputActionPhase.Performed)
+            return;
+
         if (!_gameStarted)
             return;
 
@@ -166,25 +183,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void INPUT_Attack(InputAction.CallbackContext ctx)
-    {
-        if (!_gameStarted)
-            return;
-
-        if (_playerData.Stunned)
-            return;
-
-        if (_animator)
-            _animator.SetTrigger(APARAM_ATTACK);
-
-        if (!_sfxAttack.isPlaying)
-        {
-            _sfxAttack.Play();
-        }
-    }
-
     public void INPUT_Dash(InputAction.CallbackContext ctx)
     {
+        if (ctx.phase != InputActionPhase.Performed)
+            return;
+
         if (!_gameStarted)
             return;
 
@@ -196,6 +199,9 @@ public class Player : MonoBehaviour
 
     public void INPUT_Crouch(InputAction.CallbackContext ctx)
     {
+        if (ctx.phase != InputActionPhase.Performed)
+            return;
+
         if (!_gameStarted)
             return;
 
@@ -209,6 +215,9 @@ public class Player : MonoBehaviour
 
     public void INPUT_Recover(InputAction.CallbackContext ctx)
     {
+        if (ctx.phase != InputActionPhase.Performed)
+            return;
+
         if (!_gameStarted)
             return;
 
