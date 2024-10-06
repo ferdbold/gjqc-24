@@ -125,6 +125,8 @@ public class Player : MonoBehaviour, ITakesDamage
             if (_animator)
                 _animator.SetTrigger(APARAM_HURT);
 
+            HitMarkers.PlayHitMarker(transform.position);
+
             Recoil();
         }
 

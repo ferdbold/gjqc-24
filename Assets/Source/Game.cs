@@ -25,6 +25,8 @@ public class Game : MonoBehaviour
 
     private void OnEnable()
     {
+        Application.targetFrameRate = 60;
+
         Instance = this;
 
         if (_inputManager != null)

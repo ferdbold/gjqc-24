@@ -101,6 +101,8 @@ public class HydraHead : MonoBehaviour, ITakesDamage
         else
         {
             HitRecoil();
+
+            HitMarkers.PlayHitMarker(_head.position);
         }
 
         return true;
