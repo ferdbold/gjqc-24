@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameData _gameData;
     [SerializeField] private List<PlayerData> _playerDataAssets = new();
+    [SerializeField] private List<Transform> _playerSpawnPoints = new();
     [SerializeField] private PlayerInputManager _inputManager;
 
     [Header("Values")]
@@ -94,6 +95,7 @@ public class Game : MonoBehaviour
         _playerInputs.Add(playerInput);
 
         player.gameObject.name = $"Player {player.PlayerData.PlayerIndex}";
+        player.transform.position = _playerSpawnPoints[playerIndex].position;
 
         playerInput.actions.FindAction("Start").performed += CB_GameStartRequested;
     }
