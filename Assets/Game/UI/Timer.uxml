@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
->
-    
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement data-source="project://database/Assets/Game/Core/Game.asset?fileID=11400000&amp;guid=575f47d02f350441396217cbd26a733d&amp;type=2#Game" style="flex-grow: 1; -unity-font-definition: url(&quot;project://database/Assets/Font/Greek-Freak.ttf?fileID=12800000&amp;guid=e3d0d23d4842c594f983eff14bed1723&amp;type=3#Greek-Freak&quot;); background-image: url(&quot;project://database/Assets/Game/UI/UI_01.png?fileID=1365060799&amp;guid=dae43dd8c0cc72d43ad8e2502cc444bb&amp;type=3#UI_01_0&quot;); -unity-background-image-tint-color: rgb(226, 255, 255); background-size: 66% 24%;">
+        <engine:Label text="Label" selectable="true" data-source-type="GameData, Assembly-CSharp" style="-unity-text-outline-width: 1px; font-size: 110px;" />
+    </engine:VisualElement>
 </engine:UXML>
