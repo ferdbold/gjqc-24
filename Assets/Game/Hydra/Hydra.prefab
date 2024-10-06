@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _neckAnchor: {fileID: 3101386343072982134}
+  _hydraData: {fileID: 11400000, guid: bb8a8797dc30f434da690dcfa1c4d230, type: 2}
   _headPrefab: {fileID: 1338535019554797516, guid: 0a6b065db34301e44829b471143e4d52, type: 3}
 --- !u!1 &2173193770854803379
 GameObject:
