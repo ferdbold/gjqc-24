@@ -32,6 +32,7 @@ public class Player : MonoBehaviour, ITakesDamage
     private static readonly int APARAM_VELOCITY_Y = Animator.StringToHash("VelocityY");
     private static readonly int APARAM_JUMP = Animator.StringToHash("Jump");
     private static readonly int APARAM_GROUNDED = Animator.StringToHash("Grounded");
+    private static readonly int APARAM_HURT = Animator.StringToHash("Hurt");
 
     private PlayerData _playerData;
     public PlayerData PlayerData
@@ -133,6 +134,9 @@ public class Player : MonoBehaviour, ITakesDamage
 
     public void Recoil()
     {
+        if (_animator)
+            _animator.SetTrigger(APARAM_HURT);
+
         var impulse = new Vector2(-_characterController.Direction, 0.5f) * _recoilStrength;
         _rigidbody.AddForce(impulse, ForceMode2D.Impulse);
     }
