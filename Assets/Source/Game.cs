@@ -24,12 +24,14 @@ public class Game : MonoBehaviour
     public static Game Instance { get; private set; }
     public GameData GameData => _gameData;
 
-    private void OnEnable()
+    private void Awake()
     {
         Application.targetFrameRate = 60;
-
         Instance = this;
+    }
 
+    private void OnEnable()
+    {
         if (_inputManager != null)
             _inputManager.onPlayerJoined += CB_OnPlayerJoined;
     }
@@ -40,11 +42,18 @@ public class Game : MonoBehaviour
             _inputManager.onPlayerJoined -= CB_OnPlayerJoined;
     }
 
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
+
     private void Update()
     {
         if (_gameData.Started && !_gameData.GameWon)
         {
             _gameData.TimeLeft -= Time.deltaTime;
+
+            RefreshWinningPlayer();
 
             if (_gameData.TimeLeft <= 0)
             {
@@ -52,6 +61,20 @@ public class Game : MonoBehaviour
                 EndGame();
             }
         }
+    }
+
+    private void RefreshWinningPlayer()
+    {
+        PlayerData winningPlayer = null;
+        foreach (var player in _gameData.Players)
+        {
+            if (winningPlayer == null)
+                winningPlayer = player;
+
+            else if (winningPlayer.Score < player.Score)
+                winningPlayer = player;
+        }
+        _gameData.WinningPlayer = winningPlayer;
     }
 
     private void CB_OnPlayerJoined(PlayerInput playerInput)

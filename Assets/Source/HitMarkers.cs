@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,11 +8,18 @@ public class HitMarkers : MonoBehaviour
 
     private static HitMarkers _instance;
 
+    private void Awake()
+    {
+        _instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        _instance = null;
+    }
+
     public static void PlayHitMarker(Vector3 position)
     {
-        if (_instance == null)
-            _instance = FindFirstObjectByType<HitMarkers>();
-
         if (_instance._hitMarkerVFXPrefab == null)
             return;
 

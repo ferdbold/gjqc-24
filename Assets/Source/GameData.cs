@@ -19,10 +19,14 @@ public class GameData : ScriptableObject
 
     [CreateProperty] public bool GameWon => TimeLeft <= 0f;
 
-    private void OnEnable()
+    private void OnEnable() => Reset();
+    private void OnDisable() => Reset();
+
+    private void Reset()
     {
         Started = false;
         Players.Clear();
+        WinningPlayer = null;
         TimeLeft = 30f;
     }
 
