@@ -32,6 +32,7 @@ public class Hydra : MonoBehaviour
 
     private void CB_OnHeadDied(HydraHead head)
     {
+        Debug.Log("Head died");
         _heads.Remove(head);
 
         if (_dontSpawnHeads)

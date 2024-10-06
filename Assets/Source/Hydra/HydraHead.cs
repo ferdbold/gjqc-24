@@ -1,7 +1,9 @@
 using System;
+using PrimeTween;
 using Unity.Behavior;
 using UnityEngine;
 using Action = System.Action;
+using Random = UnityEngine.Random;
 
 public class HydraHead : MonoBehaviour, ITakesDamage
 {
@@ -10,10 +12,15 @@ public class HydraHead : MonoBehaviour, ITakesDamage
     public Action OnChompEnd;
 
     [Header("Components")]
+    [SerializeField] private Transform _head;
     [SerializeField] private Animator _animator;
     [SerializeField] private BehaviorGraphAgent _behaviorGraphAgent;
     [SerializeField] private TargetAcquirer _targetAcquirer;
     [SerializeField] private MeshFilter _neckMesh;
+
+    [Header("Values")]
+    [SerializeField] private float _hitRecoilStrength = 5f;
+    [SerializeField] private float _hitRecoilDuration = 0.5f;
 
     public Animator Animator => _animator;
     private HydraHeadData _hydraHeadData;
@@ -64,6 +71,19 @@ public class HydraHead : MonoBehaviour, ITakesDamage
         {
             Die();
         }
+        else
+        {
+            HitRecoil();
+        }
+    }
+
+    private void HitRecoil()
+    {
+        var randomAngle = Random.value * 360f;
+        var normalizedVect = new Vector2((float)Math.Cos(randomAngle), (float)Math.Sin(randomAngle));
+        var impulse = Mathf.Lerp(0f, _hitRecoilStrength, Random.value) * normalizedVect;
+        var dest = new Vector3(_head.position.x + impulse.x, _head.position.y, _head.position.z + impulse.y);
+        Tween.Position(_head, dest, _hitRecoilDuration);
     }
 
     public void Die()

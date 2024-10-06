@@ -47,10 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f928fc8d3b148efaaf159b9166b17df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _head: {fileID: 3828462651123784344}
   _animator: {fileID: 968221432752661547}
   _behaviorGraphAgent: {fileID: -6723291913026837572}
   _targetAcquirer: {fileID: 6222577153718701213}
   _neckMesh: {fileID: 687316708527426503}
+  _hitRecoilStrength: 5
+  _hitRecoilDuration: 0.5
 --- !u!114 &-6723291913026837572
 MonoBehaviour:
   m_ObjectHideFlags: 0
