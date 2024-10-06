@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f239c49ec4d4040b6707a6b44d712b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _neckAnchor: {fileID: 3101386343072982134}
+  _neckAnchor: {fileID: 1235218231440334691}
   _hydraData: {fileID: 11400000, guid: bb8a8797dc30f434da690dcfa1c4d230, type: 2}
   _headPrefab: {fileID: 1338535019554797516, guid: 0a6b065db34301e44829b471143e4d52, type: 3}
+  _maxHeads: 8
 --- !u!1 &2173193770854803379
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +138,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b6746b507bc61b49a30a6f0186e2af8, type: 3}
+--- !u!4 &1235218231440334691 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7946174678332558435, guid: 8b6746b507bc61b49a30a6f0186e2af8, type: 3}
+  m_PrefabInstance: {fileID: 9178929412058452736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8946165016399549832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 235649548547294856, guid: 8b6746b507bc61b49a30a6f0186e2af8, type: 3}
