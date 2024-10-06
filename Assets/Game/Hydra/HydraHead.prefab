@@ -71,7 +71,6 @@ MonoBehaviour:
   - rid: 3306636196029399643
   - rid: 3306636216620548583
   - rid: 3306636216620548802
-  - rid: 3306636219323778029
   - rid: 3306636221265478310
   references:
     version: 2
@@ -100,14 +99,6 @@ MonoBehaviour:
           m_Value1: 3024580902714654255
         Name: ClosestPlayer
         m_Value: {fileID: 8949321171208187384, guid: 5c144ae2a853a4ebbb4cd84f26385182, type: 3}
-    - rid: 3306636219323778029
-      type: {class: 'BlackboardVariable`1[[UnityEngine.Transform, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 4403733115276171862
-          m_Value1: 3309479365669406962
-        Name: Head
-        m_Value: {fileID: 3828462651123784344}
     - rid: 3306636221265478310
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -2238,6 +2229,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2823195846427094514}
     m_Modifications:
+    - target: {fileID: 175730965708891908, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2159352735758699460, guid: 00106a94b83c4b44f9f08eb04961546a, type: 3}
       propertyPath: m_Name
       value: Hydra_Head_Visual
