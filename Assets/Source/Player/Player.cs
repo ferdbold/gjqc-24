@@ -92,7 +92,7 @@ public class Player : MonoBehaviour, ITakesDamage
             vel = 0;
         if (_playerData.Stunned)
             vel = 0;
-        if (Game.Instance.GameData.Ended)
+        if (Game.Instance.GameData.GameWon)
             vel = 0;
 
         _characterController.Move(vel, _shouldCrouch, _shouldJump);
