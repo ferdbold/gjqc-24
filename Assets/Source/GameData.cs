@@ -15,10 +15,9 @@ public class GameData : ScriptableObject
     public List<PlayerData> Players = new();
     public PlayerData WinningPlayer;
     public bool GameLost = false;
-    public bool GameWon = false;
     public float TimeLeft = 30f;
 
-    [CreateProperty] public bool Ended => TimeLeft <= 0f;
+    [CreateProperty] public bool GameWon => TimeLeft <= 0f;
 
     private void OnEnable()
     {
