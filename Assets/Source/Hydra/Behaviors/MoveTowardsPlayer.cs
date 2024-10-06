@@ -13,6 +13,7 @@ public partial class MoveTowardsPlayerAction : Action
     [SerializeReference] public BlackboardVariable<GameObject> Target;
     [SerializeReference] public BlackboardVariable<float> Speed;
 
+    private Tween _tween;
     private bool _completed = false;
 
     protected override Status OnStart()
@@ -22,7 +23,7 @@ public partial class MoveTowardsPlayerAction : Action
         //var distance = Vector2.Distance(new Vector2(source.position.x, source.position.z), new Vector2(targetPos.x, targetPos.z));
         //var duration = Speed.Value / distance;
 
-        Tween.Position(source, targetPos, 1f, Ease.OutCubic).OnComplete(CB_OnTweenComplete);
+        _tween = Tween.Position(source, targetPos, 1f, Ease.OutCubic).OnComplete(CB_OnTweenComplete);
 
         return Status.Running;
     }
@@ -31,10 +32,16 @@ public partial class MoveTowardsPlayerAction : Action
         => _completed = true;
 
     protected override Status OnUpdate()
-        => _completed ? Status.Success : Status.Running;
+    {
+        if (Source.Value == null)
+            return Status.Failure;
+
+        return _completed ? Status.Success : Status.Running;
+    }
 
     protected override void OnEnd()
     {
+        _tween.Complete();
         _completed = false;
     }
 }
