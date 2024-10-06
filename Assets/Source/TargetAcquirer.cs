@@ -25,10 +25,12 @@ public class TargetAcquirer : MonoBehaviour
         {
             if (other.TryGetComponent(out GameObjectProxy gameObjectProxy))
             {
+                Debug.Log($"{name} acquired {gameObjectProxy.Target.name}");
                 _targets.Add(gameObjectProxy.Target);
             }
             else
             {
+                Debug.Log($"{name} acquired {other.gameObject.name}");
                 _targets.Add(other.gameObject);
             }
         }
@@ -36,6 +38,7 @@ public class TargetAcquirer : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log($"{name} lost {other.gameObject.name}");
         _targets.Remove(other.gameObject);
     }
 

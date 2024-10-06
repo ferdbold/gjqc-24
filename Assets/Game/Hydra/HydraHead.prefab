@@ -50,7 +50,6 @@ MonoBehaviour:
   _animator: {fileID: 968221432752661547}
   _behaviorGraphAgent: {fileID: -6723291913026837572}
   _targetAcquirer: {fileID: 6222577153718701213}
-  _hitbox: {fileID: 3037743310326419615}
   _neckMesh: {fileID: 687316708527426503}
 --- !u!114 &-6723291913026837572
 MonoBehaviour:
@@ -70,6 +69,7 @@ MonoBehaviour:
   - rid: 3306636216620548583
   - rid: 3306636216620548802
   - rid: 3306636219323778029
+  - rid: 3306636221265478310
   references:
     version: 2
     RefIds:
@@ -88,7 +88,7 @@ MonoBehaviour:
           m_Value0: 5068230519658919522
           m_Value1: 4697346876078015751
         Name: MoveSpeed
-        m_Value: 30
+        m_Value: 60
     - rid: 3306636216620548802
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -105,6 +105,14 @@ MonoBehaviour:
           m_Value1: 3309479365669406962
         Name: Head
         m_Value: {fileID: 3828462651123784344}
+    - rid: 3306636221265478310
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 16486236507952993165
+          m_Value1: 9603534174352642936
+        Name: AttackCooldown
+        m_Value: 3
 --- !u!1 &1024575420653241632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1651,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3828462651123784344}
   - component: {fileID: 7858911020105318937}
-  m_Layer: 0
+  - component: {fileID: 8791488316245561215}
+  - component: {fileID: 7514582101040737338}
+  m_Layer: 8
   m_Name: Head_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1680,6 +1690,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deadzone: 5
   _target: {fileID: 2823195846427094514}
+--- !u!58 &8791488316245561215
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316587255604680498}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 383
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!114 &7514582101040737338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316587255604680498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abde2cfe15004846b8a1ab4787955080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 13501528355984765}
 --- !u!1 &6538793092635288471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,7 +1751,7 @@ GameObject:
   - component: {fileID: 3037743310326419615}
   - component: {fileID: 6222577153718701213}
   - component: {fileID: 1870977906232669698}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

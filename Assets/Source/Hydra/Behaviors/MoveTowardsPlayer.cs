@@ -19,10 +19,10 @@ public partial class MoveTowardsPlayerAction : Action
     {
         var source = Source.Value;
         var targetPos = Target.Value.transform.position;
-        var distance = Vector2.Distance(new Vector2(source.position.x, source.position.z), new Vector2(targetPos.x, targetPos.z));
-        var duration = Speed.Value / distance;
+        //var distance = Vector2.Distance(new Vector2(source.position.x, source.position.z), new Vector2(targetPos.x, targetPos.z));
+        //var duration = Speed.Value / distance;
 
-        Tween.Position(source, targetPos, duration, Ease.OutCubic).OnComplete(CB_OnTweenComplete);
+        Tween.Position(source, targetPos, 1f, Ease.OutCubic).OnComplete(CB_OnTweenComplete);
 
         return Status.Running;
     }
@@ -32,4 +32,9 @@ public partial class MoveTowardsPlayerAction : Action
 
     protected override Status OnUpdate()
         => _completed ? Status.Success : Status.Running;
+
+    protected override void OnEnd()
+    {
+        _completed = false;
+    }
 }
