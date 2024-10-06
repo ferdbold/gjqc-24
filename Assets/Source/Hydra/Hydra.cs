@@ -18,6 +18,10 @@ public class Hydra : MonoBehaviour
     [Header("Values")]
     [SerializeField] private float _maxHeads = 8;
 
+    [Header("Audio Components")]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _handSmashSound;
+
     private List<HydraHead> _heads = new();
     private bool _dontSpawnHeads = false;
 
@@ -74,6 +78,14 @@ public class Hydra : MonoBehaviour
         _heads.Add(newHead);
         _hydraData.Heads.Add(newHead.HydraHeadData);
     }
+
+    private void PlaySound(AudioClip clip)
+{
+    if (_audioSource != null && clip != null)
+    {
+        _audioSource.PlayOneShot(clip);
+    }
+}
 
     [Command("SpawnHead")]
     public static void CMD_SpawnHead()
