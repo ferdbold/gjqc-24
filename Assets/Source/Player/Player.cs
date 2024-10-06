@@ -107,10 +107,12 @@ public class Player : MonoBehaviour, ITakesDamage
         _playerVisual.material = mat;
     }
 
-    public void TakeDamage(float damage)
+    public bool TakeDamage(float damage, out bool killConfirmed)
     {
+        killConfirmed = false;
+
         if (_playerData.Stunned)
-            return;
+            return false;
 
         _playerData.Health -= damage;
 
@@ -123,7 +125,10 @@ public class Player : MonoBehaviour, ITakesDamage
         if (_playerData.Health <= 0)
         {
             Stun();
+            killConfirmed = true;
         }
+
+        return true;
     }
 
     public void Recoil()
@@ -145,6 +150,18 @@ public class Player : MonoBehaviour, ITakesDamage
         _playerData.Health = 100f;
         _playerData.StunProgress = -1;
         HideRescueSprite(); // Hide the rescue sprite upon recovery
+    }
+
+    public void ScoreHit()
+    {
+        PlayerData.Score += Game.Instance.ScorePerHit;
+        // TODO: SFX
+    }
+
+    public void ScoreKill()
+    {
+        PlayerData.Score += Game.Instance.ScorePerHit;
+        // TODO: SFX
     }
 
     public void ShowRescueSprite()

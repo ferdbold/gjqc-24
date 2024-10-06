@@ -13,10 +13,10 @@ public class Game : MonoBehaviour
     [SerializeField] private PlayerInputManager _inputManager;
 
     [Header("Values")]
-    [SerializeField] private int _scorePerHit = 1;
-    [SerializeField] private int _scorePerKill = 10;
-    [SerializeField] private int _scorePerGoldenKill = 25;
-    [SerializeField] private int _scorePerRevive = 10;
+    public int ScorePerHit = 1;
+    public int ScorePerKill = 10;
+    public int ScorePerGoldenKill = 25;
+    public int ScorePerRevive = 10;
 
     private readonly List<PlayerInput> _playerInputs = new();
 

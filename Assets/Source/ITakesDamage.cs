@@ -1,4 +1,4 @@
 public interface ITakesDamage
 {
-    public void TakeDamage(float amount);
+    public bool TakeDamage(float amount, out bool killConfirmed);
 }

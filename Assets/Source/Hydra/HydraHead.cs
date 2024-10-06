@@ -77,18 +77,26 @@ public class HydraHead : MonoBehaviour, ITakesDamage
             _behaviorGraphAgent.End();
     }
 
-    public void TakeDamage(float damage)
+    public bool TakeDamage(float damage, out bool killConfirmed)
     {
+        killConfirmed = false;
+
+        if (_hydraHeadData.Dead)
+            return false;
+
         _hydraHeadData.Health -= damage;
 
         if (_hydraHeadData.Health <= 0)
         {
             Die();
+            killConfirmed = true;
         }
         else
         {
             HitRecoil();
         }
+
+        return true;
     }
 
     public void PlayHissSFX()
