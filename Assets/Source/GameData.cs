@@ -22,7 +22,7 @@ public class GameData : ScriptableObject
     private void OnEnable() => Reset();
     private void OnDisable() => Reset();
 
-    private void Reset()
+    public void Reset()
     {
         Started = false;
         Players.Clear();

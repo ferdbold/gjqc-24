@@ -11,7 +11,7 @@ public class HydraHeadData : ScriptableObject
     private void OnEnable() => Reset();
     private void OnDisable() => Reset();
 
-    private void Reset()
+    public void Reset()
     {
         Health = 250f;
     }
