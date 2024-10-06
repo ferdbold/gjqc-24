@@ -23,7 +23,14 @@ public class TargetAcquirer : MonoBehaviour
     {
         if (_acquireMask == (_acquireMask | (1 << other.gameObject.layer)))
         {
-            _targets.Add(other.gameObject);
+            if (other.TryGetComponent(out GameObjectProxy gameObjectProxy))
+            {
+                _targets.Add(gameObjectProxy.Target);
+            }
+            else
+            {
+                _targets.Add(other.gameObject);
+            }
         }
     }
 
