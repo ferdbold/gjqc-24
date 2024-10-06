@@ -14,9 +14,9 @@ public partial class FindClosestAlivePlayerAction : Action
 
     protected override Node.Status OnStart()
     {
-        if (Agent.Value == null || Target.Value == null)
+        if (Agent.Value == null)
         {
-            LogFailure("No agent or target provided.");
+            LogFailure("No agent provided.");
             return Status.Failure;
         }
 
