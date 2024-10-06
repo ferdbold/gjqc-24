@@ -89,6 +89,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "5ce1ee31b837407a83ed563880c8faab"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "cfbd7d47330b4da4bc6565dda9d6dff3"
+                },
+                "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "852c0bb1a06940e9b6085d19ddf9d05d"
                 },
                 "m_SlotId": 2
@@ -98,20 +112,6 @@
                     "m_Id": "a63c4d500dd74438ad7032279e146e28"
                 },
                 "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "9683d4d132ab4c7c8808215d99b3e414"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "cfbd7d47330b4da4bc6565dda9d6dff3"
-                },
-                "m_SlotId": 1
             }
         },
         {
@@ -278,7 +278,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2
+    "m_Space": 0
 }
 
 {
@@ -728,7 +728,7 @@
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
-    "m_RenderFace": 2,
+    "m_RenderFace": 1,
     "m_AlphaClip": false,
     "m_CastShadows": true,
     "m_ReceiveShadows": true,
@@ -1182,7 +1182,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2,
+    "m_Space": 0,
     "m_PositionSource": 0
 }
 
