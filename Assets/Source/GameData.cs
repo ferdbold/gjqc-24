@@ -15,7 +15,7 @@ public class GameData : ScriptableObject
     public List<PlayerData> Players = new();
     public PlayerData WinningPlayer;
     public bool GameLost = false;
-    public float TimeLeft = 30f;
+    public float TimeLeft = 37f;
 
     [CreateProperty] public bool GameWon => TimeLeft <= 0f;
     [CreateProperty] public int TimeLeftInt => (int)TimeLeft;
@@ -33,7 +33,7 @@ public class GameData : ScriptableObject
         Started = false;
         Players.Clear();
         WinningPlayer = null;
-        TimeLeft = 30f;
+        TimeLeft = 37f;
     }
 
 #if UNITY_EDITOR
