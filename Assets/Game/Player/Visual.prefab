@@ -10116,13 +10116,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9204956274430568551}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.5626378, y: -0.44298604, z: 0.48106444, w: 0.505746}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3303743613612912707}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -171.785, y: 88.518, z: -84.436005}
 --- !u!198 &7051576682760213006
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -10206,7 +10206,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 0.5
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -10259,7 +10259,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
+      scalar: 3
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -10701,7 +10701,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.52
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -10754,7 +10754,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 10
+    type: 4
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -11078,21 +11078,21 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 0
-          outSlope: 0
+          inSlope: 6.565315
+          outSlope: 6.565315
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.3561273
         - serializedVersion: 3
-          time: 0.15885793
+          time: 0.33675298
           value: 1
-          inSlope: 2.4117599
-          outSlope: 2.4117599
+          inSlope: 0.48146942
+          outSlope: 0.48146942
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.16386995
+          outWeight: 0.2057365
         - serializedVersion: 3
           time: 1
           value: 0
