@@ -9,6 +9,7 @@ using Unity.Properties;
 [NodeDescription(name: "MoveTowardsPlayer", story: "Move [_source] towards [_target] at [_speed] speed", category: "Action", id: "3346563065928da016456e1d29f9f164")]
 public partial class MoveTowardsPlayerAction : Action
 {
+    [SerializeReference] public BlackboardVariable<HydraHead> Self;
     [SerializeReference] public BlackboardVariable<Transform> Source;
     [SerializeReference] public BlackboardVariable<GameObject> Target;
     [SerializeReference] public BlackboardVariable<float> Speed;
@@ -24,6 +25,7 @@ public partial class MoveTowardsPlayerAction : Action
         //var duration = Speed.Value / distance;
 
         _tween = Tween.Position(source, targetPos, 1f, Ease.OutCubic).OnComplete(CB_OnTweenComplete);
+        Self.Value.PlayHissSFX();
 
         return Status.Running;
     }
