@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Game : MonoBehaviour
 {
     public static Action OnGameStarted;
+    public static Action OnGameEnded;
 
     [Header("References")]
     [SerializeField] private GameData _gameData;
@@ -37,6 +38,20 @@ public class Game : MonoBehaviour
     {
         if (_inputManager != null)
             _inputManager.onPlayerJoined -= CB_OnPlayerJoined;
+    }
+
+    private void Update()
+    {
+        if (_gameData.Started && !_gameData.Ended)
+        {
+            _gameData.TimeLeft -= Time.deltaTime;
+
+            if (_gameData.TimeLeft <= 0)
+            {
+                _gameData.TimeLeft = 0f;
+                EndGame();
+            }
+        }
     }
 
     private void CB_OnPlayerJoined(PlayerInput playerInput)
@@ -78,5 +93,12 @@ public class Game : MonoBehaviour
         _playerInputs.Clear();
 
         OnGameStarted?.Invoke();
+    }
+
+    private void EndGame()
+    {
+        Hydra.CMD_KillAllHeads();
+
+        OnGameEnded?.Invoke();
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,7 +16,9 @@ public class GameData : ScriptableObject
     public PlayerData WinningPlayer;
     public bool GameLost = false;
     public bool GameWon = false;
-    public float TimeLeft= 30f;
+    public float TimeLeft = 30f;
+
+    [CreateProperty] public bool Ended => TimeLeft <= 0f;
 
     private void OnEnable()
     {

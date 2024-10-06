@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efa91afc2ad4a5dba28c34bd5b4f860, type: 3}
   m_Name: Game
   m_EditorClassIdentifier: 
-  Started: 0
+  Started: 1
+  Players:
+  - {fileID: 11400000, guid: c52867b78d79343cbabb18664c3a3d33, type: 2}
+  - {fileID: 11400000, guid: 71174d5fccf5f4012b9436d985b87e92, type: 2}
+  WinningPlayer: {fileID: 0}
+  GameLost: 0
+  GameWon: 0
+  TimeLeft: 0
