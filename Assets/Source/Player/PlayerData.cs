@@ -19,7 +19,7 @@ public class PlayerData : ScriptableObject
     private void OnEnable() => Reset();
     private void OnDisable() => Reset();
 
-    private void Reset()
+    public void Reset()
     {
         PlayerIndex = -1;
         Health = 100f;

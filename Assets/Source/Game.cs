@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
+using QFSW.QC;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
     public static Action OnGameStarted;
     public static Action OnGameEnded;
+    public static Action OnGameReset;
 
     [Header("References")]
     [SerializeField] private GameData _gameData;
@@ -45,6 +48,7 @@ public class Game : MonoBehaviour
 
     private void OnDestroy()
     {
+        _playerInputs.Clear();
         Instance = null;
     }
 
@@ -102,8 +106,8 @@ public class Game : MonoBehaviour
 
     private void CB_GameStartRequested(InputAction.CallbackContext ctx)
     {
-        if (_gameData.Started)
-            return;
+        foreach (var playerInput in _playerInputs)
+            playerInput.actions.FindAction("Start").performed -= CB_GameStartRequested;
 
         StartGame();
     }
@@ -113,10 +117,6 @@ public class Game : MonoBehaviour
         _inputManager.DisableJoining();
         _gameData.Started = true;
 
-        foreach (var playerInput in _playerInputs)
-            playerInput.actions.FindAction("Start").performed -= CB_GameStartRequested;
-        _playerInputs.Clear();
-
         OnGameStarted?.Invoke();
     }
 
@@ -124,6 +124,29 @@ public class Game : MonoBehaviour
     {
         Hydra.CMD_KillAllHeads();
 
+        foreach (var playerInput in _playerInputs)
+            playerInput.actions.FindAction("Start").performed += CB_GameResetRequested;
+
         OnGameEnded?.Invoke();
     }
+
+    private void CB_GameResetRequested(InputAction.CallbackContext ctx)
+    {
+        foreach (var playerInput in _playerInputs)
+            playerInput.actions.FindAction("Start").performed -= CB_GameResetRequested;
+
+        Reset();
+    }
+
+    private void Reset()
+    {
+        _gameData.Reset();
+        OnGameReset?.Invoke();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    [Command("Reset")]
+    private static void CMD_Reset()
+        => Instance.Reset();
 }

@@ -10,7 +10,7 @@ public class HydraData : ScriptableObject
     private void OnEnable() => Reset();
     private void OnDisable() => Reset();
 
-    private void Reset()
+    public void Reset()
     {
         Heads.Clear();
         HeadsDefeated = 0;

@@ -63,6 +63,7 @@ public class Player : MonoBehaviour, ITakesDamage
         {
             Game.OnGameStarted += CB_OnGameStarted;
             Game.OnGameEnded += CB_OnGameEnded;
+            Game.OnGameReset += CB_OnGameReset;
         }
 
         _targetsInRange.Clear();
@@ -72,6 +73,7 @@ public class Player : MonoBehaviour, ITakesDamage
     {
         Game.OnGameStarted -= CB_OnGameStarted;
         Game.OnGameEnded -= CB_OnGameEnded;
+        Game.OnGameReset -= CB_OnGameReset;
 
         _targetsInRange.Clear();
     }
@@ -291,6 +293,11 @@ public class Player : MonoBehaviour, ITakesDamage
 
     private void CB_OnGameEnded()
         => _gameEnded = true;
+
+    private void CB_OnGameReset()
+    {
+        _playerData.Reset();
+    }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     [Command("Stun")]
